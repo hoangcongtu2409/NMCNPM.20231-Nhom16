@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1be5db-867d-4818-80e8-090f13f65645" name="Changes" comment="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/homeUI.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/loginUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/app/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/app/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/app/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +23,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="037c9d02-0f86-4393-9b6e-6609884fe474" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -78,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698592816848</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
+      <created>1703250472015</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1703250472015</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

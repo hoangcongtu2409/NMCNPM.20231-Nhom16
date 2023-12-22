@@ -17,6 +17,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("loginUI"), 1280, 800);
+        stage.setTitle("Teaching Aid Management App");
         stage.setScene(scene);
         stage.show();
 
