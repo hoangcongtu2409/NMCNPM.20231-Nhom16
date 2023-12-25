@@ -3,6 +3,8 @@ module com.example.app {
     requires javafx.fxml;
 
 
-    opens com.example.app to javafx.fxml;
-    exports com.example.app;
+    opens teachingAidManagementSystem to javafx.fxml;
+    exports teachingAidManagementSystem;
+    exports teachingAidManagementSystem.Controller;
+    opens teachingAidManagementSystem.Controller to javafx.fxml;
 }
