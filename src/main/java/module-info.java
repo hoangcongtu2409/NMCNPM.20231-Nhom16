@@ -5,4 +5,6 @@ module com.example.app {
 
     opens teachingAidManagementSystem to javafx.fxml;
     exports teachingAidManagementSystem;
+    exports teachingAidManagementSystem.Controller;
+    opens teachingAidManagementSystem.Controller to javafx.fxml;
 }

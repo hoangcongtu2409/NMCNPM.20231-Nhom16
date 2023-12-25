@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1be5db-867d-4818-80e8-090f13f65645" name="Changes" comment="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/Controller/ClientsUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/Controller/DevicesUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/Controller/ManageUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/Controller/ProfileUIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/clientsUI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/devicesUI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/manageUI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/profileUI.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/Controller/HomeUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/Controller/LoginUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/homeUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/homeUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/loginUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/loginUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,13 +50,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Program Files/Java/javafx-sdk-20.0.1/lib",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -79,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703250472015</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
+      <created>1703252205589</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1703252205589</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

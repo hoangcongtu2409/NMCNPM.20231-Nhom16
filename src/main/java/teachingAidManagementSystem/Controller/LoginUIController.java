@@ -1,13 +1,14 @@
-package teachingAidManagementSystem;
+package teachingAidManagementSystem.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import teachingAidManagementSystem.App;
 
 import java.io.IOException;
 
-public class LoginController {
+public class LoginUIController {
     @FXML
     private TextField accField;
     @FXML
