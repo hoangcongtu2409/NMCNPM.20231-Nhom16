@@ -3,13 +3,15 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.Controller.DevicesUIController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.Controller.DevicesUIController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -123,11 +125,21 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Devices" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0">
+                  <Text layoutX="336.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Devices" AnchorPane.leftAnchor="336.0" AnchorPane.topAnchor="13.626953125">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Text>
+                  <TableView fx:id="table" layoutX="14.0" layoutY="61.0" prefHeight="624.0" prefWidth="520.0">
+                    <columns>
+                      <TableColumn prefWidth="59.20002746582031" text="Icon" />
+                      <TableColumn fx:id="idColumn" prefWidth="91.20001220703125" text="ID" />
+                        <TableColumn fx:id="nameColumn" prefWidth="91.20001220703125" text="Name" />
+                        <TableColumn fx:id="amountColumn" prefWidth="91.20001220703125" text="Amount" />
+                        <TableColumn fx:id="usableColumn" prefWidth="91.20001220703125" text="Usable" />
+                        <TableColumn fx:id="brokenColumn" prefWidth="91.20001220703125" text="Broken" />
+                    </columns>
+                  </TableView>
                </children>
             </AnchorPane>
          </children>
