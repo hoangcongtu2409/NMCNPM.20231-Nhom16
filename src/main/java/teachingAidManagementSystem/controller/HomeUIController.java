@@ -1,11 +1,11 @@
-package teachingAidManagementSystem.Controller;
+package teachingAidManagementSystem.controller;
 
 import javafx.fxml.FXML;
 import teachingAidManagementSystem.App;
 
 import java.io.IOException;
 
-public class ClientsUIController {
+public class HomeUIController {
     @FXML
     public void switchToHome() throws IOException {
         App.setRoot("homeUI");

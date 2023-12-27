@@ -1,4 +1,4 @@
-package teachingAidManagementSystem.Classes;
+package teachingAidManagementSystem.classes;
 
 public class Devices {
     private String idDevice;

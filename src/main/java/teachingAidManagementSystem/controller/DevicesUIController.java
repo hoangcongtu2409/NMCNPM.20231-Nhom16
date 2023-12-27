@@ -1,4 +1,4 @@
-package teachingAidManagementSystem.Controller;
+package teachingAidManagementSystem.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,6 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import teachingAidManagementSystem.App;
+import teachingAidManagementSystem.classes.Devices;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,7 +35,7 @@ public class DevicesUIController {
         App.setRoot("profileUI");
     }
 
-    // Điều khiển TableView
+    //Điều khiển TableView
     @FXML
     private TableView<Devices> table;
     @FXML
