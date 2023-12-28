@@ -126,38 +126,92 @@
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
                <children>
-                  <Text layoutX="336.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Devices" AnchorPane.leftAnchor="336.0" AnchorPane.topAnchor="13.626953125">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Text>
-                  <TableView fx:id="table" layoutX="14.0" layoutY="71.0" prefHeight="611.0" prefWidth="458.0">
-                    <columns>
-                      <TableColumn fx:id="iconColumn" prefWidth="52.00006103515625" />
-                      <TableColumn fx:id="idColumn" prefWidth="64.00006103515625" text="ID" />
-                        <TableColumn fx:id="nameColumn" prefWidth="65.5999755859375" text="Name" />
-                        <TableColumn fx:id="amountColumn" prefWidth="76.0" text="Amount" />
-                        <TableColumn fx:id="usableColumn" prefWidth="67.20001220703125" text="Usable" />
-                        <TableColumn fx:id="brokenColumn" prefWidth="66.39996337890625" text="Broken" />
-                        <TableColumn fx:id="editColumn" prefWidth="63.99997558593748" />
-                    </columns>
-                  </TableView>
-                  <Button layoutX="502.0" layoutY="357.0" mnemonicParsing="false" onAction="#addButton" text="Add" />
-                  <Button layoutX="494.0" layoutY="414.0" mnemonicParsing="false" text="Button" />
-                  <Button layoutX="613.0" layoutY="357.0" mnemonicParsing="false" onAction="#deleteButton" text="Delete" />
-                  <Label layoutX="498.0" layoutY="96.0" text="Icon" />
-                  <Label layoutX="498.0" layoutY="127.0" text="ID" />
-                  <Label layoutX="498.0" layoutY="157.0" text="Name" />
-                  <Label layoutX="498.0" layoutY="186.0" text="Amount" />
-                  <Label layoutX="498.0" layoutY="218.0" text="Usable" />
-                  <Label layoutX="498.0" layoutY="254.0" text="Broken" />
-                  <TextField fx:id="iconTextField" layoutX="556.0" layoutY="94.0" />
-                  <TextField fx:id="idTextField" layoutX="556.0" layoutY="125.0" />
-                  <TextField fx:id="nameTextField" layoutX="556.0" layoutY="155.0" />
-                  <TextField fx:id="amountTextField" layoutX="556.0" layoutY="184.0" />
-                  <TextField fx:id="usableTextField" layoutX="556.0" layoutY="216.0" />
-                  <TextField fx:id="brokenTextField" layoutX="556.0" layoutY="252.0" />
+                  <AnchorPane fx:id="mainWindow" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text layoutX="336.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Devices" AnchorPane.leftAnchor="336.0" AnchorPane.topAnchor="13.626953125">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Text>
+                        <TableView fx:id="table" layoutX="14.0" layoutY="71.0" prefHeight="611.0" prefWidth="460.0">
+                           <columns>
+                              <TableColumn fx:id="iconColumn" prefWidth="52.00006103515625" />
+                              <TableColumn fx:id="idColumn" prefWidth="64.00006103515625" text="ID" />
+                              <TableColumn fx:id="nameColumn" prefWidth="65.5999755859375" text="Name" />
+                              <TableColumn fx:id="amountColumn" prefWidth="76.0" text="Amount" />
+                              <TableColumn fx:id="usableColumn" prefWidth="67.20001220703125" text="Usable" />
+                              <TableColumn fx:id="brokenColumn" prefWidth="66.39996337890625" text="Broken" />
+                              <TableColumn fx:id="editColumn" prefWidth="64.00003662109373" />
+                           </columns>
+                        </TableView>
+                        <Button layoutX="662.0" layoutY="178.0" mnemonicParsing="false" onAction="#openAddWindow" text="Add New Device" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="addAndEditWindow" prefHeight="200.0" prefWidth="200.0" style="-fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label text="Icon" />
+                                    <TextField fx:id="iconTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="ID" />
+                                    <TextField fx:id="idTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="Name" />
+                                    <TextField fx:id="nameTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="Amount" />
+                                    <TextField fx:id="amountTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="Usable" />
+                                    <TextField fx:id="usableTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="Broken" />
+                                    <TextField fx:id="brokenTextField" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="25.6" prefWidth="200.0">
+                                 <children>
+                                    <HBox fx:id="editButtons" style="-fx-view-order: 0;" visible="false">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#applyChanges" text="Apply" HBox.hgrow="ALWAYS" />
+                                          <Button mnemonicParsing="false" onAction="#deleteDevice" text="Delete" HBox.hgrow="ALWAYS" />
+                                          <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="addButtons" prefHeight="25.6" prefWidth="200.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#addDevice" text="Add" />
+                                          <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>
