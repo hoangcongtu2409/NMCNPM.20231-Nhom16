@@ -81,6 +81,7 @@ public class DevicesUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //TODO Sửa lại sau khi có database: devicesList sẽ lấy danh sách thiết bị từ database
         devicesList = FXCollections.observableArrayList(
                 new Devices("MIC", "MIC", "Micro", 22, 12, 3),
                 new Devices("Mic", "micro", "míc", 22, 22, 22)
@@ -165,6 +166,7 @@ public class DevicesUIController implements Initializable {
         mainWindow.setEffect(null);
     }
 
+    //TODO Với các phần thêm, xóa, sửa thì phải cập nhật lên database
     public void addDevice (ActionEvent event) {
         Devices newDevice = new Devices();
         newDevice.setIconDevice(iconTextField.getText());
