@@ -5,10 +5,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 import teachingAidManagementSystem.App;
 import teachingAidManagementSystem.classes.Devices;
 
@@ -53,7 +52,8 @@ public class DevicesUIController implements Initializable {
     private TableColumn<Devices, Integer> usableColumn;
     @FXML
     private TableColumn<Devices, Integer> brokenColumn;
-
+    @FXML
+    private TableColumn<Devices, Void> editColumn;
     @FXML
     private TextField iconTextField;
     @FXML
@@ -81,8 +81,35 @@ public class DevicesUIController implements Initializable {
         usableColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>( "usableDevice"));
         brokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>( "brokenDevice"));
         table.setItems(devicesList);
+        addButtonToTable();
     }
 
+    private void addButtonToTable() {
+        Callback<TableColumn<Devices, Void>, TableCell<Devices, Void>> cellFactory = new Callback<TableColumn<Devices, Void>, TableCell<Devices, Void>>() {
+            @Override
+            public TableCell<Devices, Void> call(final TableColumn<Devices, Void> devicesVoidTableColumn) {
+                final TableCell<Devices, Void> cell= new TableCell<Devices, Void>() {
+                    final Button btn = new Button("Edit");
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            //Chuyển sang giao diện giống add nhưng có sẵn thông tin của devices cần sửa
+                            btn.setOnAction(e -> {
+
+                            });
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+        editColumn.setCellFactory(cellFactory);
+    }
+    //Cái này nên làm chuyển sang giao diện khác hoặc popup window để add vào
     public void addButton (ActionEvent event) {
         Devices newDevice = new Devices();
         newDevice.setIconDevice(iconTextField.getText());
