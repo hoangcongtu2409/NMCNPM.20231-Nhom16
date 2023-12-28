@@ -17,6 +17,14 @@ public class Devices {
         this.brokenDevice = brokenDevice;
     }
 
+    public Devices(String idDevice, String nameDevice, int amountDevice, int usableDevice, int brokenDevice) {
+        this.idDevice = idDevice;
+        this.nameDevice = nameDevice;
+        this.amountDevice = amountDevice;
+        this.usableDevice = usableDevice;
+        this.brokenDevice = brokenDevice;
+    }
+
     public Devices() {
     }
 
