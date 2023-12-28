@@ -1,13 +1,15 @@
 package teachingAidManagementSystem.classes;
 
 public class Devices {
+    private String iconDevice;
     private String idDevice;
     private String nameDevice;
     private int amountDevice;
     private int usableDevice;
     private int brokenDevice;
 
-    public Devices(String idDevice, String nameDevice, int amountDevice, int usableDevice, int brokenDevice) {
+    public Devices(String iconDevice, String idDevice, String nameDevice, int amountDevice, int usableDevice, int brokenDevice) {
+        this.iconDevice = iconDevice;
         this.idDevice = idDevice;
         this.nameDevice = nameDevice;
         this.amountDevice = amountDevice;
@@ -16,6 +18,14 @@ public class Devices {
     }
 
     public Devices() {
+    }
+
+    public String getIconDevice() {
+        return iconDevice;
+    }
+
+    public void setIconDevice(String iconDevice) {
+        this.iconDevice = iconDevice;
     }
 
     public String getIdDevice() {

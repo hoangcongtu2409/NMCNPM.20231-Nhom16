@@ -2,9 +2,11 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -130,16 +132,31 @@
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <TableView fx:id="table" layoutX="14.0" layoutY="61.0" prefHeight="624.0" prefWidth="520.0">
+                  <TableView fx:id="table" layoutX="14.0" layoutY="71.0" prefHeight="611.0" prefWidth="458.0">
                     <columns>
-                      <TableColumn prefWidth="59.20002746582031" text="Icon" />
-                      <TableColumn fx:id="idColumn" prefWidth="91.20001220703125" text="ID" />
-                        <TableColumn fx:id="nameColumn" prefWidth="91.20001220703125" text="Name" />
-                        <TableColumn fx:id="amountColumn" prefWidth="91.20001220703125" text="Amount" />
-                        <TableColumn fx:id="usableColumn" prefWidth="91.20001220703125" text="Usable" />
-                        <TableColumn fx:id="brokenColumn" prefWidth="91.20001220703125" text="Broken" />
+                      <TableColumn fx:id="iconColumn" prefWidth="75.0" text="Icon" />
+                      <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                        <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
+                        <TableColumn fx:id="amountColumn" prefWidth="75.0" text="Amount" />
+                        <TableColumn fx:id="usableColumn" prefWidth="75.0" text="Usable" />
+                        <TableColumn fx:id="brokenColumn" prefWidth="75.0" text="Broken" />
                     </columns>
                   </TableView>
+                  <Button layoutX="502.0" layoutY="357.0" mnemonicParsing="false" onAction="#addButton" text="Add" />
+                  <Button layoutX="494.0" layoutY="414.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="613.0" layoutY="357.0" mnemonicParsing="false" onAction="#deleteButton" text="Delete" />
+                  <Label layoutX="498.0" layoutY="96.0" text="Icon" />
+                  <Label layoutX="498.0" layoutY="127.0" text="ID" />
+                  <Label layoutX="498.0" layoutY="157.0" text="Name" />
+                  <Label layoutX="498.0" layoutY="186.0" text="Amount" />
+                  <Label layoutX="498.0" layoutY="218.0" text="Usable" />
+                  <Label layoutX="498.0" layoutY="254.0" text="Broken" />
+                  <TextField fx:id="iconTextField" layoutX="556.0" layoutY="94.0" />
+                  <TextField fx:id="idTextField" layoutX="556.0" layoutY="125.0" />
+                  <TextField fx:id="nameTextField" layoutX="556.0" layoutY="155.0" />
+                  <TextField fx:id="amountTextField" layoutX="556.0" layoutY="184.0" />
+                  <TextField fx:id="usableTextField" layoutX="556.0" layoutY="216.0" />
+                  <TextField fx:id="brokenTextField" layoutX="556.0" layoutY="252.0" />
                </children>
             </AnchorPane>
          </children>
