@@ -1,78 +1,87 @@
 package teachingAidManagementSystem.classes;
 
 public class Devices {
-    private String iconDevice;
-    private String idDevice;
-    private String nameDevice;
-    private int amountDevice;
-    private int usableDevice;
-    private int brokenDevice;
+    private String icon;
+    private String id;
+    private String name;
+    private int amount;
+    private int usable;
+    private int broken;
+    private String description;
 
-    public Devices(String iconDevice, String idDevice, String nameDevice, int amountDevice, int usableDevice, int brokenDevice) {
-        this.iconDevice = iconDevice;
-        this.idDevice = idDevice;
-        this.nameDevice = nameDevice;
-        this.amountDevice = amountDevice;
-        this.usableDevice = usableDevice;
-        this.brokenDevice = brokenDevice;
+    public Devices(String icon, String id, String name, int amount, int usable, int broken) {
+        this.icon = icon;
+        this.id = id;
+        this.name = name;
+        this.amount = amount;
+        this.usable = usable;
+        this.broken = broken;
     }
 
-    public Devices(String idDevice, String nameDevice, int amountDevice, int usableDevice, int brokenDevice) {
-        this.idDevice = idDevice;
-        this.nameDevice = nameDevice;
-        this.amountDevice = amountDevice;
-        this.usableDevice = usableDevice;
-        this.brokenDevice = brokenDevice;
+    public Devices(String id, String name, int amount, int usable, int broken) {
+        this.id = id;
+        this.name = name;
+        this.amount = amount;
+        this.usable = usable;
+        this.broken = broken;
     }
 
     public Devices() {
     }
 
-    public String getIconDevice() {
-        return iconDevice;
+    public String getIcon() {
+        return icon;
     }
 
-    public void setIconDevice(String iconDevice) {
-        this.iconDevice = iconDevice;
+    public void setIcon(String icon) {
+        this.icon = icon;
     }
 
-    public String getIdDevice() {
-        return idDevice;
+    public String getId() {
+        return id;
     }
 
-    public void setIdDevice(String idDevice) {
-        this.idDevice = idDevice;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getNameDevice() {
-        return nameDevice;
+    public String getName() {
+        return name;
     }
 
-    public void setNameDevice(String nameDevice) {
-        this.nameDevice = nameDevice;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getAmountDevice() {
-        return amountDevice;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setAmountDevice(int amountDevice) {
-        this.amountDevice = amountDevice;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
-    public int getUsableDevice() {
-        return usableDevice;
+    public int getUsable() {
+        return usable;
     }
 
-    public void setUsableDevice(int usableDevice) {
-        this.usableDevice = usableDevice;
+    public void setUsable(int usable) {
+        this.usable = usable;
     }
 
-    public int getBrokenDevice() {
-        return brokenDevice;
+    public int getBroken() {
+        return broken;
     }
 
-    public void setBrokenDevice(int brokenDevice) {
-        this.brokenDevice = brokenDevice;
+    public void setBroken(int broken) {
+        this.broken = broken;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

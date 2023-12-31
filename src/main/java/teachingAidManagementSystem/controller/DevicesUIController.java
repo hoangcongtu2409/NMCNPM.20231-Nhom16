@@ -24,11 +24,15 @@ public class DevicesUIController implements Initializable {
     @FXML
     private AnchorPane addAndEditWindow;
     @FXML
+    private Button switchButton;
+    @FXML
     private HBox addButtons;
     @FXML
     private HBox editButtons;
     @FXML
-    private TableView<Devices> table;
+    private TableView<Devices> allDevicesTable;
+    @FXML
+    private TableView<Devices> brokenDevicesTable;
     @FXML
     private TableColumn<Devices, String> iconColumn;
     @FXML
@@ -43,6 +47,8 @@ public class DevicesUIController implements Initializable {
     private TableColumn<Devices, Integer> brokenColumn;
     @FXML
     private TableColumn<Devices, Void> editColumn;
+    @FXML
+    private TableColumn<Devices, String> descriptionColumn;
     @FXML
     private TextField iconTextField;
     @FXML
@@ -86,13 +92,15 @@ public class DevicesUIController implements Initializable {
                 new Devices("MIC", "MIC", "Micro", 22, 12, 3),
                 new Devices("Mic", "micro", "míc", 22, 22, 22)
         );
-        iconColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("iconDevice"));
-        idColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>( "idDevice"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>( "nameDevice"));
-        amountColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>( "amountDevice"));
-        usableColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>( "usableDevice"));
-        brokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>( "brokenDevice"));
-        table.setItems(devicesList);
+        iconColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("icon"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("name"));
+        amountColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>("amount"));
+        usableColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>("usable"));
+        brokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>("broken"));
+        descriptionColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("description"));
+        allDevicesTable.setItems(devicesList);
+        brokenDevicesTable.setItems(devicesList);
         addButtonToTable();
     }
 
@@ -151,12 +159,12 @@ public class DevicesUIController implements Initializable {
         mainWindow.setEffect(blur);
         addButtons.setVisible(false);
         editButtons.setVisible(true);
-        iconTextField.setText(device.getIconDevice());
-        idTextField.setText(device.getIdDevice());
-        nameTextField.setText(device.getNameDevice());
-        amountTextField.setText(String.valueOf(device.getAmountDevice()));
-        usableTextField.setText(String.valueOf(device.getUsableDevice()));
-        brokenTextField.setText(String.valueOf(device.getBrokenDevice()));
+        iconTextField.setText(device.getIcon());
+        idTextField.setText(device.getId());
+        nameTextField.setText(device.getName());
+        amountTextField.setText(String.valueOf(device.getAmount()));
+        usableTextField.setText(String.valueOf(device.getUsable()));
+        brokenTextField.setText(String.valueOf(device.getBroken()));
     }
 
     //Đóng Popup window
@@ -167,14 +175,14 @@ public class DevicesUIController implements Initializable {
     }
 
     //TODO Với các phần thêm, xóa, sửa thì phải cập nhật lên database
-    public void addDevice (ActionEvent event) {
+    public void addDevice(ActionEvent event) {
         Devices newDevice = new Devices();
-        newDevice.setIconDevice(iconTextField.getText());
-        newDevice.setIdDevice(idTextField.getText());
-        newDevice.setNameDevice(nameTextField.getText());
-        newDevice.setAmountDevice(Integer.parseInt(amountTextField.getText()));
-        newDevice.setUsableDevice(Integer.parseInt(usableTextField.getText()));
-        newDevice.setBrokenDevice(Integer.parseInt(brokenTextField.getText()));
+        newDevice.setIcon(iconTextField.getText());
+        newDevice.setId(idTextField.getText());
+        newDevice.setName(nameTextField.getText());
+        newDevice.setAmount(Integer.parseInt(amountTextField.getText()));
+        newDevice.setUsable(Integer.parseInt(usableTextField.getText()));
+        newDevice.setBroken(Integer.parseInt(brokenTextField.getText()));
         devicesList.add(newDevice);
         closePopup();
     }
@@ -185,17 +193,30 @@ public class DevicesUIController implements Initializable {
     }
 
     //Lưu lại thay đổi thiết bị
-    public void applyChanges (ActionEvent event) {
+    public void applyChanges(ActionEvent event) {
         Devices updateDevice = new Devices();
-        updateDevice.setIconDevice(iconTextField.getText());
-        updateDevice.setIdDevice(idTextField.getText());
-        updateDevice.setNameDevice(nameTextField.getText());
-        updateDevice.setAmountDevice(Integer.parseInt(amountTextField.getText()));
-        updateDevice.setUsableDevice(Integer.parseInt(usableTextField.getText()));
-        updateDevice.setBrokenDevice(Integer.parseInt(brokenTextField.getText()));
+        updateDevice.setIcon(iconTextField.getText());
+        updateDevice.setId(idTextField.getText());
+        updateDevice.setName(nameTextField.getText());
+        updateDevice.setAmount(Integer.parseInt(amountTextField.getText()));
+        updateDevice.setUsable(Integer.parseInt(usableTextField.getText()));
+        updateDevice.setBroken(Integer.parseInt(brokenTextField.getText()));
         int i = 0;
         if (devicesList.get(i).equals(device))
             devicesList.set(i, updateDevice);
         closePopup();
+    }
+
+    @FXML
+    public void switchTable(ActionEvent event) {
+        if (allDevicesTable.isVisible()) {
+            switchButton.setText("All Devices");
+            allDevicesTable.setVisible(false);
+            brokenDevicesTable.setVisible(true);
+        } else {
+            switchButton.setText("Broken Devices");
+            allDevicesTable.setVisible(true);
+            brokenDevicesTable.setVisible(false);
+        }
     }
 }
