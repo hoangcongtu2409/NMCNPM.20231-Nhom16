@@ -2,14 +2,18 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.ClientsUIController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.ClientsUIController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -123,11 +127,84 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="100.0">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                  </Text>
+                  <AnchorPane fx:id="mainWindow" prefHeight="800.0" prefWidth="1080.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" AnchorPane.leftAnchor="371.0" AnchorPane.topAnchor="13.626953125">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Text>
+                        <TableView fx:id="allClientsTable" layoutX="5.0" layoutY="79.0" prefHeight="548.0" prefWidth="486.0">
+                          <columns>
+                            <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
+                            <TableColumn fx:id="emailColumn" prefWidth="75.0" text="Email" />
+                              <TableColumn fx:id="phoneNumberColumn" prefWidth="136.79998779296875" text="Phone Number" />
+                              <TableColumn fx:id="addressColumn" prefWidth="114.4000244140625" text="Adress" />
+                              <TableColumn fx:id="editColumn" prefWidth="83.99993896484375" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="567.0" layoutY="198.0" mnemonicParsing="false" onAction="#openAddWindow" text="Add New Client" />
+                        <Button fx:id="switchButton" layoutX="567.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchTable" text="Using Client" />
+                        <TableView fx:id="usingClientsTable" layoutX="6.0" layoutY="78.0" prefHeight="548.0" prefWidth="486.0" visible="false">
+                          <columns>
+                            <TableColumn fx:id="provisionNumberColumn1" prefWidth="120.80003356933594" text="Provision Number" />
+                            <TableColumn fx:id="deviceColumn1" prefWidth="100.79998779296875" text="Device" />
+                              <TableColumn fx:id="amountColumn1" prefWidth="75.0" text="Amount" />
+                              <TableColumn fx:id="clientColumn1" prefWidth="75.0" text="Client" />
+                              <TableColumn fx:id="detailColumn1" prefWidth="112.79996337890623" text="Detail" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="addAndEditWindow" layoutX="66.0" layoutY="94.0" prefHeight="562.0" prefWidth="652.0" style="-fx-view-order: 0;" visible="false">
+                     <children>
+                        <VBox>
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label text="Name" />
+                                    <TextField fx:id="nameTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="Email" />
+                                    <TextField fx:id="emailTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="Phone Number" />
+                                    <TextField fx:id="phoneNumberTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="Adsress" />
+                                    <TextField fx:id="addressTextField" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane prefHeight="25.6" prefWidth="200.0">
+                                 <children>
+                                    <HBox fx:id="editButtons" style="-fx-view-order: 0;" visible="false">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#applyChanges" text="Apply" HBox.hgrow="ALWAYS" />
+                                          <Button mnemonicParsing="false" onAction="#deleteDevice" text="Delete" HBox.hgrow="ALWAYS" />
+                                          <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="addButtons" prefHeight="25.6" prefWidth="200.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#addDevice" text="Add" />
+                                          <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children>
