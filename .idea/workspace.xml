@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa1be5db-867d-4818-80e8-090f13f65645" name="Changes" comment="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/classes/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_25_2023_11_06_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_25_2023_11_06_AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/ClientsUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/ClientsUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/clientsUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/clientsUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/devicesUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/devicesUI.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="aa1be5db-867d-4818-80e8-090f13f65645" name="Changes" comment="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -136,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703784551534</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
+      <option name="closed" value="true" />
+      <created>1704105832757</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704105832757</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

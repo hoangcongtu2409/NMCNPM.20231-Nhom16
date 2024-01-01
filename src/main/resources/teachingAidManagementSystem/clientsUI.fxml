@@ -189,13 +189,13 @@
                                     <HBox fx:id="editButtons" style="-fx-view-order: 0;" visible="false">
                                        <children>
                                           <Button mnemonicParsing="false" onAction="#applyChanges" text="Apply" HBox.hgrow="ALWAYS" />
-                                          <Button mnemonicParsing="false" onAction="#deleteDevice" text="Delete" HBox.hgrow="ALWAYS" />
+                                          <Button mnemonicParsing="false" onAction="#deleteClient" text="Delete" HBox.hgrow="ALWAYS" />
                                           <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" HBox.hgrow="ALWAYS" />
                                        </children>
                                     </HBox>
                                     <HBox fx:id="addButtons" prefHeight="25.6" prefWidth="200.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="#addDevice" text="Add" />
+                                          <Button mnemonicParsing="false" onAction="#addClient" text="Add" />
                                           <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" />
                                        </children>
                                     </HBox>
