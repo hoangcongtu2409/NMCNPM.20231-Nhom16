@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 public class DatabaseConnection{
     public Connection databaseLink;
     public Connection getConnection() {
-        String dbName = "QuestionAndCategory";
+        String dbName = "DeviceManagement";
         String dbUser = "sa";
         String dbPassword = "26082003";     //Pass này mỗi người tự đặt khác nhau
         String url = "jdbc:sqlserver://localhost" + ";databaseName=" + dbName;

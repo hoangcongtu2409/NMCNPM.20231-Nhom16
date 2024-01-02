@@ -16,6 +16,7 @@ import teachingAidManagementSystem.classes.Devices;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DevicesUIController implements Initializable {
@@ -175,7 +176,7 @@ public class DevicesUIController implements Initializable {
     }
 
     //TODO Với các phần thêm, xóa, sửa thì phải cập nhật lên database
-    public void addDevice(ActionEvent event) {
+    public void addDevice(ActionEvent event) throws SQLException {
         Devices newDevice = new Devices();
         newDevice.setIcon(iconTextField.getText());
         newDevice.setId(idTextField.getText());
@@ -184,16 +185,18 @@ public class DevicesUIController implements Initializable {
         newDevice.setUsable(Integer.parseInt(usableTextField.getText()));
         newDevice.setBroken(Integer.parseInt(brokenTextField.getText()));
         devicesList.add(newDevice);
+        newDevice.addDevice();
         closePopup();
     }
 
-    public void deleteDevice(ActionEvent event) {
+    public void deleteDevice(ActionEvent event) throws SQLException {
         devicesList.remove(device);
+        device.deleteDevice();
         closePopup();
     }
 
     //Lưu lại thay đổi thiết bị
-    public void applyChanges(ActionEvent event) {
+    public void applyChanges(ActionEvent event) throws SQLException {
         Devices updateDevice = new Devices();
         updateDevice.setIcon(iconTextField.getText());
         updateDevice.setId(idTextField.getText());
@@ -201,9 +204,12 @@ public class DevicesUIController implements Initializable {
         updateDevice.setAmount(Integer.parseInt(amountTextField.getText()));
         updateDevice.setUsable(Integer.parseInt(usableTextField.getText()));
         updateDevice.setBroken(Integer.parseInt(brokenTextField.getText()));
-        int i = 0;
-        if (devicesList.get(i).equals(device))
-            devicesList.set(i, updateDevice);
+        for (int i = 0; i < devicesList.size(); i++) {
+            if (devicesList.get(i).equals(device)) {
+                devicesList.set(i, updateDevice);
+                updateDevice.updateDevice();
+            }
+        }
         closePopup();
     }
 

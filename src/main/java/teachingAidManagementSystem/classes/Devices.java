@@ -1,5 +1,11 @@
 package teachingAidManagementSystem.classes;
 
+import teachingAidManagementSystem.DatabaseConnection;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class Devices {
     private String icon;
     private String id;
@@ -59,6 +65,8 @@ public class Devices {
 
     public void setAmount(int amount) {
         this.amount = amount;
+        this.usable = amount;
+        this.broken = 0;
     }
 
     public int getUsable() {
@@ -83,5 +91,55 @@ public class Devices {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void addDevice() throws SQLException {
+        DatabaseConnection catConn = new DatabaseConnection();
+        Connection connectDB = catConn.getConnection();
+
+        String insertQuery = "INSERT INTO Devices(ID, Name, Amount, Usable, Broken) VALUES " +
+                "(N'" + id + "', N'" + name + "', " + amount + ", " + usable + ", " + broken + ")";
+
+        try{
+            Statement statement = connectDB.createStatement();
+            statement.executeUpdate(insertQuery);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void deleteDevice() throws SQLException {
+        DatabaseConnection catConn = new DatabaseConnection();
+        Connection connectDB = catConn.getConnection();
+
+        String deleteQuery = "DELETE FROM Devices WHERE ID = '" + id + "'";
+
+        try{
+            Statement statement = connectDB.createStatement();
+            statement.executeUpdate(deleteQuery);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
+    public void updateDevice() throws SQLException {
+        DatabaseConnection catConn = new DatabaseConnection();
+        Connection connectDB = catConn.getConnection();
+
+        String updateQuery = "UPDATE Devices SET Name = N'" + name + "', Amount = " + amount +
+                ", Usable = " + usable + ", Broken = " + broken + " WHERE ID = '" + id + "'";
+
+        try{
+            Statement statement = connectDB.createStatement();
+            statement.executeUpdate(updateQuery);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 }
