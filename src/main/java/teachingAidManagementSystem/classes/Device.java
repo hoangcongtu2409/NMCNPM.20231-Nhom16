@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Devices {
+public class Device {
     private String icon;
     private String id;
     private String name;
@@ -15,7 +15,7 @@ public class Devices {
     private int broken;
     private String description;
 
-    public Devices(String icon, String id, String name, int amount, int usable, int broken) {
+    public Device(String icon, String id, String name, int amount, int usable, int broken) {
         this.icon = icon;
         this.id = id;
         this.name = name;
@@ -24,7 +24,7 @@ public class Devices {
         this.broken = broken;
     }
 
-    public Devices(String id, String name, int amount, int usable, int broken) {
+    public Device(String id, String name, int amount, int usable, int broken) {
         this.id = id;
         this.name = name;
         this.amount = amount;
@@ -32,7 +32,7 @@ public class Devices {
         this.broken = broken;
     }
 
-    public Devices() {
+    public Device() {
     }
 
     public String getIcon() {
@@ -97,7 +97,7 @@ public class Devices {
         DatabaseConnection catConn = new DatabaseConnection();
         Connection connectDB = catConn.getConnection();
 
-        String insertQuery = "INSERT INTO Devices(ID, Name, Amount, Usable, Broken) VALUES " +
+        String insertQuery = "INSERT INTO Device(ID, Name, Amount, Usable, Broken) VALUES " +
                 "(N'" + id + "', N'" + name + "', " + amount + ", " + usable + ", " + broken + ")";
 
         try{
@@ -114,7 +114,7 @@ public class Devices {
         DatabaseConnection catConn = new DatabaseConnection();
         Connection connectDB = catConn.getConnection();
 
-        String deleteQuery = "DELETE FROM Devices WHERE ID = '" + id + "'";
+        String deleteQuery = "DELETE FROM Device WHERE ID = '" + id + "'";
 
         try{
             Statement statement = connectDB.createStatement();
@@ -130,7 +130,7 @@ public class Devices {
         DatabaseConnection catConn = new DatabaseConnection();
         Connection connectDB = catConn.getConnection();
 
-        String updateQuery = "UPDATE Devices SET Name = N'" + name + "', Amount = " + amount +
+        String updateQuery = "UPDATE Device SET Name = N'" + name + "', Amount = " + amount +
                 ", Usable = " + usable + ", Broken = " + broken + " WHERE ID = '" + id + "'";
 
         try{

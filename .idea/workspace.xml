@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="aa1be5db-867d-4818-80e8-090f13f65645" name="Changes" comment="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/classes/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/classes/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/classes/Devices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/classes/Device.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/DevicesUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/DevicesUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/devicesUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/devicesUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704245540571</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
+      <created>1704253371320</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1704253371320</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,7 +184,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>

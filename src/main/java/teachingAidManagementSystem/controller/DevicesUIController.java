@@ -13,7 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import teachingAidManagementSystem.App;
 import teachingAidManagementSystem.DatabaseConnection;
-import teachingAidManagementSystem.classes.Devices;
+import teachingAidManagementSystem.classes.Device;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,31 +32,31 @@ public class DevicesUIController implements Initializable {
     @FXML
     private HBox editButtons;
     @FXML
-    private TableView<Devices> allDevicesTable;
+    private TableView<Device> allDevicesTable;
     @FXML
-    private TableColumn<Devices, String> iconColumn;
+    private TableColumn<Device, String> iconColumn;
     @FXML
-    private TableColumn<Devices, String> idColumn;
+    private TableColumn<Device, String> idColumn;
     @FXML
-    private TableColumn<Devices, String> nameColumn;
+    private TableColumn<Device, String> nameColumn;
     @FXML
-    private TableColumn<Devices, Integer> amountColumn;
+    private TableColumn<Device, Integer> amountColumn;
     @FXML
-    private TableColumn<Devices, Integer> usableColumn;
+    private TableColumn<Device, Integer> usableColumn;
     @FXML
-    private TableColumn<Devices, Integer> brokenColumn;
+    private TableColumn<Device, Integer> brokenColumn;
     @FXML
-    private TableColumn<Devices, Void> editColumn;
+    private TableColumn<Device, Void> editColumn;
     @FXML
-    private TableView<Devices> brokenDevicesTable;
+    private TableView<Device> brokenDevicesTable;
     @FXML
-    private TableColumn<Devices, String> idBrokenColumn;
+    private TableColumn<Device, String> idBrokenColumn;
     @FXML
-    private TableColumn<Devices, String> nameBrokenColumn;
+    private TableColumn<Device, String> nameBrokenColumn;
     @FXML
-    private TableColumn<Devices, Integer> amountBrokenColumn;
+    private TableColumn<Device, Integer> amountBrokenColumn;
     @FXML
-    private TableColumn<Devices, String> descriptionBrokenColumn;
+    private TableColumn<Device, String> descriptionBrokenColumn;
     @FXML
     private TextField iconTextField;
     @FXML
@@ -69,9 +69,9 @@ public class DevicesUIController implements Initializable {
     private TextField usableTextField;
     @FXML
     private TextField brokenTextField;
-    private ObservableList<Devices> devicesList;
-    private ObservableList<Devices> brokenList;
-    private Devices device;
+    private ObservableList<Device> deviceList;
+    private ObservableList<Device> brokenList;
+    private Device device;
 
     @FXML
     public void switchToHome() throws IOException {
@@ -96,22 +96,22 @@ public class DevicesUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        devicesList = FXCollections.observableArrayList();
+        deviceList = FXCollections.observableArrayList();
         brokenList = FXCollections.observableArrayList();
         getDataList();
 
-        iconColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("icon"));
-        idColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("id"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("name"));
-        amountColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>("amount"));
-        usableColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>("usable"));
-        brokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>("broken"));
-        allDevicesTable.setItems(devicesList);
+        iconColumn.setCellValueFactory(new PropertyValueFactory<Device, String>("icon"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<Device, String>("id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Device, String>("name"));
+        amountColumn.setCellValueFactory(new PropertyValueFactory<Device, Integer>("amount"));
+        usableColumn.setCellValueFactory(new PropertyValueFactory<Device, Integer>("usable"));
+        brokenColumn.setCellValueFactory(new PropertyValueFactory<Device, Integer>("broken"));
+        allDevicesTable.setItems(deviceList);
 
-        idBrokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("id"));
-        nameBrokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("name"));
-        amountBrokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>("broken"));
-        descriptionBrokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("description"));
+        idBrokenColumn.setCellValueFactory(new PropertyValueFactory<Device, String>("id"));
+        nameBrokenColumn.setCellValueFactory(new PropertyValueFactory<Device, String>("name"));
+        amountBrokenColumn.setCellValueFactory(new PropertyValueFactory<Device, Integer>("broken"));
+        descriptionBrokenColumn.setCellValueFactory(new PropertyValueFactory<Device, String>("description"));
         brokenDevicesTable.setItems(brokenList);
 
         addButtonToTable();
@@ -122,20 +122,20 @@ public class DevicesUIController implements Initializable {
         DatabaseConnection catConn = new DatabaseConnection();
         Connection connectDB = catConn.getConnection();
 
-        String selectAllData ="SELECT * FROM Devices";
+        String selectAllData ="SELECT * FROM Device";
         try {
             PreparedStatement statement = connectDB.prepareStatement(selectAllData);
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
-                Devices newDevice = new Devices();
+                Device newDevice = new Device();
                 newDevice.setId(rs.getString("ID"));
                 newDevice.setName(rs.getNString("Name"));
                 newDevice.setAmount(rs.getInt("Amount"));
                 newDevice.setUsable(rs.getInt("Usable"));
                 newDevice.setBroken(rs.getInt("Broken"));
                 newDevice.setDescription(rs.getNString("Description"));
-                devicesList.add(newDevice);
+                deviceList.add(newDevice);
                 if (newDevice.getBroken() != 0)
                     brokenList.add(newDevice);
             }
@@ -147,10 +147,10 @@ public class DevicesUIController implements Initializable {
 
     //Thêm các nút edit vào các hàng
     private void addButtonToTable() {
-        Callback<TableColumn<Devices, Void>, TableCell<Devices, Void>> cellFactory = new Callback<TableColumn<Devices, Void>, TableCell<Devices, Void>>() {
+        Callback<TableColumn<Device, Void>, TableCell<Device, Void>> cellFactory = new Callback<TableColumn<Device, Void>, TableCell<Device, Void>>() {
             @Override
-            public TableCell<Devices, Void> call(final TableColumn<Devices, Void> devicesVoidTableColumn) {
-                final TableCell<Devices, Void> cell= new TableCell<Devices, Void>() {
+            public TableCell<Device, Void> call(final TableColumn<Device, Void> devicesVoidTableColumn) {
+                final TableCell<Device, Void> cell= new TableCell<Device, Void>() {
                     final Button btn = new Button("Edit");
                     @Override
                     public void updateItem(Void item, boolean empty) {
@@ -160,7 +160,7 @@ public class DevicesUIController implements Initializable {
                         } else {
                             //Chuyển sang giao diện giống add nhưng có sẵn thông tin của devices cần sửa
                             btn.setOnAction(e -> {
-                                TableRow<Devices> row = getTableRow();
+                                TableRow<Device> row = getTableRow();
                                 if (row != null) {
                                     device = row.getItem();
                                     openEditWindow();
@@ -216,14 +216,14 @@ public class DevicesUIController implements Initializable {
     }
 
     public void addDevice(ActionEvent event) throws SQLException {
-        Devices newDevice = new Devices();
+        Device newDevice = new Device();
         newDevice.setIcon(iconTextField.getText());
         newDevice.setId(idTextField.getText());
         newDevice.setName(nameTextField.getText());
         newDevice.setAmount(Integer.parseInt(amountTextField.getText()));
         newDevice.setUsable(Integer.parseInt(usableTextField.getText()));
         newDevice.setBroken(Integer.parseInt(brokenTextField.getText()));
-        devicesList.add(newDevice);
+        deviceList.add(newDevice);
         if (newDevice.getBroken() != 0)
             brokenList.add(newDevice);
         newDevice.addDevice();
@@ -231,7 +231,7 @@ public class DevicesUIController implements Initializable {
     }
 
     public void deleteDevice(ActionEvent event) throws SQLException {
-        devicesList.remove(device);
+        deviceList.remove(device);
         if (device.getBroken() != 0)
             brokenList.remove(device);
         device.deleteDevice();
@@ -240,7 +240,7 @@ public class DevicesUIController implements Initializable {
 
     //Lưu lại thay đổi thiết bị
     public void applyChanges(ActionEvent event) throws SQLException {
-        Devices updateDevice = new Devices();
+        Device updateDevice = new Device();
         updateDevice.setIcon(iconTextField.getText());
         updateDevice.setId(idTextField.getText());
         updateDevice.setName(nameTextField.getText());
@@ -248,9 +248,9 @@ public class DevicesUIController implements Initializable {
         updateDevice.setUsable(Integer.parseInt(usableTextField.getText()));
         updateDevice.setBroken(Integer.parseInt(brokenTextField.getText()));
 
-        for (int i = 0; i < devicesList.size(); i++) {
-            if (devicesList.get(i).equals(device)) {
-                devicesList.set(i, updateDevice);
+        for (int i = 0; i < deviceList.size(); i++) {
+            if (deviceList.get(i).equals(device)) {
+                deviceList.set(i, updateDevice);
                 updateDevice.updateDevice();
             }
         }
@@ -278,11 +278,11 @@ public class DevicesUIController implements Initializable {
     @FXML
     public void switchTable(ActionEvent event) {
         if (allDevicesTable.isVisible()) {
-            switchButton.setText("All Devices");
+            switchButton.setText("All Device");
             allDevicesTable.setVisible(false);
             brokenDevicesTable.setVisible(true);
         } else {
-            switchButton.setText("Broken Devices");
+            switchButton.setText("Broken Device");
             allDevicesTable.setVisible(true);
             brokenDevicesTable.setVisible(false);
         }

@@ -1,6 +1,7 @@
 package teachingAidManagementSystem.classes;
 
 public class Client {
+    private String clientID;
     private String name;
     private String email;
     private String phoneNumber;
@@ -9,11 +10,27 @@ public class Client {
     public Client() {
     }
 
+    public Client(String clientID, String name, String email, String phoneNumber, String address) {
+        this.clientID = clientID;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
     public Client(String name, String email, String phoneNumber, String address) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
+    }
+
+    public String getClientID() {
+        return clientID;
+    }
+
+    public void setClientID(String clientID) {
+        this.clientID = clientID;
     }
 
     public String getName() {
