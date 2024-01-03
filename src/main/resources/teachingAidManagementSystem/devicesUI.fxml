@@ -153,11 +153,10 @@
                         <TableView fx:id="brokenDevicesTable" layoutX="209.0" layoutY="32.0" prefHeight="611.0" prefWidth="460.0" visible="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="100.0">
                            <columns>
                               <TableColumn fx:id="iconColumn1" prefWidth="52.00006103515625" />
-                              <TableColumn fx:id="idColumn1" prefWidth="64.00006103515625" text="ID" />
-                              <TableColumn fx:id="amountColumn1" prefWidth="76.0" text="Amount" />
-                              <TableColumn fx:id="nameColumn1" prefWidth="65.5999755859375" text="Name" />
-                              <TableColumn fx:id="brokenColumn1" prefWidth="66.39996337890625" text="Broken" />
-                              <TableColumn fx:id="descriptionColumn" prefWidth="75.0" text="Description" />
+                              <TableColumn fx:id="idBrokenColumn" prefWidth="64.00006103515625" text="ID" />
+                              <TableColumn fx:id="nameBrokenColumn" prefWidth="65.5999755859375" text="Name" />
+                              <TableColumn fx:id="amountBrokenColumn" prefWidth="76.0" text="Amount" />
+                              <TableColumn fx:id="descriptionBrokenColumn" prefWidth="75.0" text="Description" />
                            </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

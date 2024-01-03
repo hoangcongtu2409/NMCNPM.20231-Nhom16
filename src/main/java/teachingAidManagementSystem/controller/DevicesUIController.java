@@ -34,8 +34,6 @@ public class DevicesUIController implements Initializable {
     @FXML
     private TableView<Devices> allDevicesTable;
     @FXML
-    private TableView<Devices> brokenDevicesTable;
-    @FXML
     private TableColumn<Devices, String> iconColumn;
     @FXML
     private TableColumn<Devices, String> idColumn;
@@ -50,7 +48,15 @@ public class DevicesUIController implements Initializable {
     @FXML
     private TableColumn<Devices, Void> editColumn;
     @FXML
-    private TableColumn<Devices, String> descriptionColumn;
+    private TableView<Devices> brokenDevicesTable;
+    @FXML
+    private TableColumn<Devices, String> idBrokenColumn;
+    @FXML
+    private TableColumn<Devices, String> nameBrokenColumn;
+    @FXML
+    private TableColumn<Devices, Integer> amountBrokenColumn;
+    @FXML
+    private TableColumn<Devices, String> descriptionBrokenColumn;
     @FXML
     private TextField iconTextField;
     @FXML
@@ -64,6 +70,7 @@ public class DevicesUIController implements Initializable {
     @FXML
     private TextField brokenTextField;
     private ObservableList<Devices> devicesList;
+    private ObservableList<Devices> brokenList;
     private Devices device;
 
     @FXML
@@ -90,16 +97,23 @@ public class DevicesUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         devicesList = FXCollections.observableArrayList();
+        brokenList = FXCollections.observableArrayList();
         getDataList();
+
         iconColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("icon"));
         idColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("name"));
         amountColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>("amount"));
         usableColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>("usable"));
         brokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>("broken"));
-        descriptionColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("description"));
         allDevicesTable.setItems(devicesList);
-        brokenDevicesTable.setItems(devicesList);
+
+        idBrokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("id"));
+        nameBrokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("name"));
+        amountBrokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, Integer>("broken"));
+        descriptionBrokenColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("description"));
+        brokenDevicesTable.setItems(brokenList);
+
         addButtonToTable();
     }
 
@@ -122,6 +136,8 @@ public class DevicesUIController implements Initializable {
                 newDevice.setBroken(rs.getInt("Broken"));
                 newDevice.setDescription(rs.getNString("Description"));
                 devicesList.add(newDevice);
+                if (newDevice.getBroken() != 0)
+                    brokenList.add(newDevice);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -208,12 +224,16 @@ public class DevicesUIController implements Initializable {
         newDevice.setUsable(Integer.parseInt(usableTextField.getText()));
         newDevice.setBroken(Integer.parseInt(brokenTextField.getText()));
         devicesList.add(newDevice);
+        if (newDevice.getBroken() != 0)
+            brokenList.add(newDevice);
         newDevice.addDevice();
         closePopup();
     }
 
     public void deleteDevice(ActionEvent event) throws SQLException {
         devicesList.remove(device);
+        if (device.getBroken() != 0)
+            brokenList.remove(device);
         device.deleteDevice();
         closePopup();
     }
@@ -227,12 +247,31 @@ public class DevicesUIController implements Initializable {
         updateDevice.setAmount(Integer.parseInt(amountTextField.getText()));
         updateDevice.setUsable(Integer.parseInt(usableTextField.getText()));
         updateDevice.setBroken(Integer.parseInt(brokenTextField.getText()));
+
         for (int i = 0; i < devicesList.size(); i++) {
             if (devicesList.get(i).equals(device)) {
                 devicesList.set(i, updateDevice);
                 updateDevice.updateDevice();
             }
         }
+
+        if (updateDevice.getBroken() != 0) {
+            boolean check = false;
+            for (int i = 0; i < brokenList.size(); i++) {
+                if (brokenList.get(i).equals(device)) {
+                    brokenList.set(i, updateDevice);
+                    check = true;
+                }
+            }
+            if (!check) brokenList.add(updateDevice);
+        } else {
+            for (int i = 0; i < brokenList.size(); i++) {
+                if (brokenList.get(i).equals(device)) {
+                    brokenList.remove(device);
+                }
+            }
+        }
+
         closePopup();
     }
 
