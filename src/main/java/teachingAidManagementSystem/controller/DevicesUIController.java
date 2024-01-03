@@ -12,11 +12,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import teachingAidManagementSystem.App;
+import teachingAidManagementSystem.DatabaseConnection;
 import teachingAidManagementSystem.classes.Devices;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class DevicesUIController implements Initializable {
@@ -88,11 +89,8 @@ public class DevicesUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //TODO Sửa lại sau khi có database: devicesList sẽ lấy danh sách thiết bị từ database
-        devicesList = FXCollections.observableArrayList(
-                new Devices("MIC", "MIC", "Micro", 22, 12, 3),
-                new Devices("Mic", "micro", "míc", 22, 22, 22)
-        );
+        devicesList = FXCollections.observableArrayList();
+        getDataList();
         iconColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("icon"));
         idColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Devices, String>("name"));
@@ -103,6 +101,32 @@ public class DevicesUIController implements Initializable {
         allDevicesTable.setItems(devicesList);
         brokenDevicesTable.setItems(devicesList);
         addButtonToTable();
+    }
+
+    //Lấy dữ liệu từ database
+    private void getDataList() {
+        DatabaseConnection catConn = new DatabaseConnection();
+        Connection connectDB = catConn.getConnection();
+
+        String selectAllData ="SELECT * FROM Devices";
+        try {
+            PreparedStatement statement = connectDB.prepareStatement(selectAllData);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                Devices newDevice = new Devices();
+                newDevice.setId(rs.getString("ID"));
+                newDevice.setName(rs.getNString("Name"));
+                newDevice.setAmount(rs.getInt("Amount"));
+                newDevice.setUsable(rs.getInt("Usable"));
+                newDevice.setBroken(rs.getInt("Broken"));
+                newDevice.setDescription(rs.getNString("Description"));
+                devicesList.add(newDevice);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 
     //Thêm các nút edit vào các hàng
@@ -175,7 +199,6 @@ public class DevicesUIController implements Initializable {
         mainWindow.setEffect(null);
     }
 
-    //TODO Với các phần thêm, xóa, sửa thì phải cập nhật lên database
     public void addDevice(ActionEvent event) throws SQLException {
         Devices newDevice = new Devices();
         newDevice.setIcon(iconTextField.getText());
