@@ -24,13 +24,7 @@ public class DevicesUIController implements Initializable {
     @FXML
     private AnchorPane mainWindow;
     @FXML
-    private AnchorPane addAndEditWindow;
-    @FXML
     private Button switchButton;
-    @FXML
-    private HBox addButtons;
-    @FXML
-    private HBox editButtons;
     @FXML
     private TableView<Device> allDevicesTable;
     @FXML
@@ -58,7 +52,17 @@ public class DevicesUIController implements Initializable {
     @FXML
     private TableColumn<Device, String> descriptionBrokenColumn;
     @FXML
-    private TextField iconTextField;
+    private AnchorPane addWindow;
+    @FXML
+    private TextField idAddTextField;
+    @FXML
+    private TextField nameAddTextField;
+    @FXML
+    private TextField amountAddTextField;
+    @FXML
+    private TextField descriptionAddTextField;
+    @FXML
+    private AnchorPane editWindow;
     @FXML
     private TextField idTextField;
     @FXML
@@ -179,12 +183,10 @@ public class DevicesUIController implements Initializable {
     //Mở của sổ để thêm thiết bị
     @FXML
     public void openAddWindow() {
-        addAndEditWindow.setVisible(true);
+        mainWindow.setDisable(true);
+        addWindow.setVisible(true);
         BoxBlur blur = new BoxBlur(5, 5, 3);
         mainWindow.setEffect(blur);
-        addButtons.setVisible(true);
-        editButtons.setVisible(false);
-        iconTextField.setText(null);
         idTextField.setText(null);
         nameTextField.setText(null);
         amountTextField.setText(null);
@@ -195,12 +197,10 @@ public class DevicesUIController implements Initializable {
     //Mở của sổ chỉnh sửa thiết bị
     @FXML
     public void openEditWindow() {
-        addAndEditWindow.setVisible(true);
+        mainWindow.setDisable(true);
+        editWindow.setVisible(true);
         BoxBlur blur = new BoxBlur(5, 5, 3);
         mainWindow.setEffect(blur);
-        addButtons.setVisible(false);
-        editButtons.setVisible(true);
-        iconTextField.setText(device.getIcon());
         idTextField.setText(device.getId());
         nameTextField.setText(device.getName());
         amountTextField.setText(String.valueOf(device.getAmount()));
@@ -211,18 +211,17 @@ public class DevicesUIController implements Initializable {
     //Đóng Popup window
     @FXML
     public void closePopup() {
-        addAndEditWindow.setVisible(false);
+        addWindow.setVisible(false);
+        editWindow.setVisible(false);
+        mainWindow.setDisable(false);
         mainWindow.setEffect(null);
     }
 
     public void addDevice(ActionEvent event) throws SQLException {
         Device newDevice = new Device();
-        newDevice.setIcon(iconTextField.getText());
-        newDevice.setId(idTextField.getText());
-        newDevice.setName(nameTextField.getText());
-        newDevice.setAmount(Integer.parseInt(amountTextField.getText()));
-        newDevice.setUsable(Integer.parseInt(usableTextField.getText()));
-        newDevice.setBroken(Integer.parseInt(brokenTextField.getText()));
+        newDevice.setId(idAddTextField.getText());
+        newDevice.setName(nameAddTextField.getText());
+        newDevice.setAmount(Integer.parseInt(amountAddTextField.getText()));
         deviceList.add(newDevice);
         if (newDevice.getBroken() != 0)
             brokenList.add(newDevice);
@@ -241,7 +240,6 @@ public class DevicesUIController implements Initializable {
     //Lưu lại thay đổi thiết bị
     public void applyChanges(ActionEvent event) throws SQLException {
         Device updateDevice = new Device();
-        updateDevice.setIcon(iconTextField.getText());
         updateDevice.setId(idTextField.getText());
         updateDevice.setName(nameTextField.getText());
         updateDevice.setAmount(Integer.parseInt(amountTextField.getText()));

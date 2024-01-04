@@ -164,16 +164,48 @@
                         </TableView>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="addAndEditWindow" prefHeight="200.0" prefWidth="200.0" style="-fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                  <AnchorPane fx:id="addWindow" prefHeight="200.0" prefWidth="200.0" style="-fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
                      <children>
                         <VBox>
                            <children>
                               <HBox>
                                  <children>
-                                    <Label text="Icon" />
-                                    <TextField fx:id="iconTextField" />
+                                    <Label text="ID" />
+                                    <TextField fx:id="idAddTextField" />
                                  </children>
                               </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="Name" />
+                                    <TextField fx:id="nameAddTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="Amount" />
+                                    <TextField fx:id="amountAddTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="61.0">
+                                 <children>
+                                    <Label text="Description" />
+                                    <TextField fx:id="descriptionAddTextField" />
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="25.6" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#addDevice" text="Add" />
+                                    <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="editWindow" layoutX="110.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" style="-fx-view-order: 0;" visible="false">
+                     <children>
+                        <VBox>
+                           <children>
                               <HBox>
                                  <children>
                                     <Label text="ID" />
@@ -204,23 +236,13 @@
                                     <TextField fx:id="brokenTextField" />
                                  </children>
                               </HBox>
-                              <AnchorPane prefHeight="25.6" prefWidth="200.0">
+                              <HBox style="-fx-view-order: 0;">
                                  <children>
-                                    <HBox fx:id="editButtons" style="-fx-view-order: 0;" visible="false">
-                                       <children>
-                                          <Button mnemonicParsing="false" onAction="#applyChanges" text="Apply" HBox.hgrow="ALWAYS" />
-                                          <Button mnemonicParsing="false" onAction="#deleteDevice" text="Delete" HBox.hgrow="ALWAYS" />
-                                          <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" HBox.hgrow="ALWAYS" />
-                                       </children>
-                                    </HBox>
-                                    <HBox fx:id="addButtons" prefHeight="25.6" prefWidth="200.0">
-                                       <children>
-                                          <Button mnemonicParsing="false" onAction="#addDevice" text="Add" />
-                                          <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" />
-                                       </children>
-                                    </HBox>
+                                    <Button mnemonicParsing="false" onAction="#applyChanges" text="Apply" HBox.hgrow="ALWAYS" />
+                                    <Button mnemonicParsing="false" onAction="#deleteDevice" text="Delete" HBox.hgrow="ALWAYS" />
+                                    <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" HBox.hgrow="ALWAYS" />
                                  </children>
-                              </AnchorPane>
+                              </HBox>
                            </children>
                         </VBox>
                      </children>
