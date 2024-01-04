@@ -101,7 +101,7 @@
                               <Font size="33.0" />
                            </font>
                         </Text>
-                        <TableView fx:id="allDevicesTable" layoutX="100.0" layoutY="186.0" prefHeight="544.0" prefWidth="880.0" style="-fx-background-color: #000000; -fx-background-radius: 25;" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="186.0">
+                        <TableView fx:id="allDevicesTable" layoutX="100.0" layoutY="186.0" prefHeight="544.0" prefWidth="880.0" style="-fx-background-color: #000000;" stylesheets="@../../../CSS/TAnk.css" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="186.0">
                            <columns>
                               <TableColumn fx:id="iconColumn" prefWidth="69.60003662109375" />
                               <TableColumn fx:id="idColumn" prefWidth="87.19998168945312" text="ID" />
