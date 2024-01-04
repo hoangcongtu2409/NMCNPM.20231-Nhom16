@@ -11,4 +11,10 @@ module teachingAidManagementSystem {
     exports teachingAidManagementSystem.classes;
     exports teachingAidManagementSystem.controller;
     opens teachingAidManagementSystem.controller to javafx.fxml;
+    exports teachingAidManagementSystem.constant;
+    opens teachingAidManagementSystem.constant to javafx.fxml;
+    exports teachingAidManagementSystem.model;
+    opens teachingAidManagementSystem.model to javafx.fxml;
+    exports teachingAidManagementSystem.dbcontext;
+    opens teachingAidManagementSystem.dbcontext to javafx.fxml;
 }
