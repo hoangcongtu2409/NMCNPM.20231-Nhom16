@@ -24,7 +24,7 @@
                            </font>
                         </Label>
                         <Line endX="100.0" layoutX="70.0" layoutY="67.0" startX="-40.5000114440918" startY="7.62939453125E-6" stroke="#767676" />
-                        <Label fx:id="manageButton" layoutY="143.0" onMouseClicked="#switchToManage" prefHeight="34.0" prefWidth="165.0" text="           Manage" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
+                        <Label fx:id="manageButton" layoutY="144.0" onMouseClicked="#switchToManage" prefHeight="33.0" prefWidth="154.0" text="           Manage" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -104,7 +104,7 @@
                               <Font size="21.0" />
                            </font>
                         </Button>
-                        <TextField layoutX="585.0" layoutY="39.0" prefHeight="46.0" prefWidth="421.0" promptText="Search Clients..." style="-fx-border-color: #3B3B3B; -fx-background-color: #202020; -fx-border-radius: 10;">
+                        <TextField layoutX="577.0" layoutY="39.0" prefHeight="46.0" prefWidth="421.0" promptText="Search Clients..." style="-fx-border-color: #3B3B3B; -fx-background-color: #202020; -fx-border-radius: 10;">
                            <font>
                               <Font size="19.0" />
                            </font>
