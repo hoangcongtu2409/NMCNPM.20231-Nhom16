@@ -1,15 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.LoginUIController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #434343;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.LoginUIController">
    <children>
-      <PasswordField fx:id="pwField" layoutX="218.0" layoutY="217.0" />
-      <TextField fx:id="accField" layoutX="217.0" layoutY="169.0" />
-      <Button fx:id="signinButton" layoutX="251.0" layoutY="271.0" mnemonicParsing="false" onAction="#switchToHome" text="Sign in" />
+      <PasswordField fx:id="pwField" layoutX="993.0" layoutY="362.0" prefHeight="45.0" prefWidth="222.0" promptText="Password" style="-fx-background-color: #434343; -fx-border-color: #767676; -fx-border-radius: 15;">
+         <font>
+            <Font size="16.0" />
+         </font></PasswordField>
+      <TextField fx:id="accField" layoutX="993.0" layoutY="295.0" prefHeight="46.0" prefWidth="222.0" promptText="Username" style="-fx-background-color: #434343; -fx-border-color: #767676; -fx-border-radius: 15;">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Button fx:id="signinButton" layoutX="993.0" layoutY="439.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="29.0" prefWidth="222.0" style="-fx-background-color: #767676; -fx-border-radius: 10;" text="Sign in" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="800.0" prefWidth="924.0" style="-fx-background-color: #202020;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutX="227.0" layoutY="128.0" prefHeight="544.0" prefWidth="469.0" style="-fx-background-color: #434343; -fx-border-radius: 30;" AnchorPane.bottomAnchor="128.0" AnchorPane.topAnchor="128.0">
+               <children>
+                  <FontAwesomeIcon fill="WHITE" glyphName="BRIEFCASE" layoutX="186.0" layoutY="111.0" size="8em" wrappingWidth="97.5999755859375" />
+                  <Text fill="WHITE" layoutX="43.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teaching Aid Management System" textAlignment="CENTER">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="117.0" layoutY="216.0" prefHeight="111.0" prefWidth="236.0" text="Keep track of your organization’s teaching supplies with this all-in-one application for efficient teaching aid management!" textAlignment="CENTER" textFill="#767676" wrapText="true">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Text fill="#89b9ff" layoutX="189.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group 16">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#89b9ff" layoutX="174.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Software Project">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Line endX="100.0" layoutX="1104.0" layoutY="571.0" startX="-100.0" stroke="#767676" />
+      <Text fill="WHITE" layoutX="953.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="953.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in to continue">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="991.0" layoutY="603.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don’t have an account?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Hyperlink layoutX="1163.0" layoutY="580.0" text="Sign up" textFill="#89b9ff" underline="true">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Hyperlink>
    </children>
 </AnchorPane>
