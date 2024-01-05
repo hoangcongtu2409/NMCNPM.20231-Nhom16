@@ -182,21 +182,16 @@ public class DevicesUIController implements Initializable {
 
     //Mở của sổ để thêm thiết bị
     @FXML
-    public void openAddWindow() {
+    private void openAddWindow() {
         mainWindow.setDisable(true);
         addWindow.setVisible(true);
         BoxBlur blur = new BoxBlur(5, 5, 3);
         mainWindow.setEffect(blur);
-        idTextField.setText(null);
-        nameTextField.setText(null);
-        amountTextField.setText(null);
-        usableTextField.setText(null);
-        brokenTextField.setText(null);
     }
 
     //Mở của sổ chỉnh sửa thiết bị
     @FXML
-    public void openEditWindow() {
+    private void openEditWindow() {
         mainWindow.setDisable(true);
         editWindow.setVisible(true);
         BoxBlur blur = new BoxBlur(5, 5, 3);
@@ -210,14 +205,15 @@ public class DevicesUIController implements Initializable {
 
     //Đóng Popup window
     @FXML
-    public void closePopup() {
+    private void closePopup() {
         addWindow.setVisible(false);
         editWindow.setVisible(false);
         mainWindow.setDisable(false);
         mainWindow.setEffect(null);
     }
 
-    public void addDevice(ActionEvent event) throws SQLException {
+    @FXML
+    private void addDevice(ActionEvent event) throws SQLException {
         Device newDevice = new Device();
         newDevice.setId(idAddTextField.getText());
         newDevice.setName(nameAddTextField.getText());
@@ -229,7 +225,8 @@ public class DevicesUIController implements Initializable {
         closePopup();
     }
 
-    public void deleteDevice(ActionEvent event) throws SQLException {
+    @FXML
+    private void deleteDevice(ActionEvent event) throws SQLException {
         deviceList.remove(device);
         if (device.getBroken() != 0)
             brokenList.remove(device);
@@ -238,7 +235,8 @@ public class DevicesUIController implements Initializable {
     }
 
     //Lưu lại thay đổi thiết bị
-    public void applyChanges(ActionEvent event) throws SQLException {
+    @FXML
+    private void applyChanges(ActionEvent event) throws SQLException {
         Device updateDevice = new Device();
         updateDevice.setId(idTextField.getText());
         updateDevice.setName(nameTextField.getText());
@@ -274,7 +272,7 @@ public class DevicesUIController implements Initializable {
     }
 
     @FXML
-    public void switchTable(ActionEvent event) {
+    private void switchTable(ActionEvent event) {
         if (allDevicesTable.isVisible()) {
             switchButton.setText("All Device");
             allDevicesTable.setVisible(false);

@@ -94,27 +94,56 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <AnchorPane fx:id="mainWindow" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: #202020;" AnchorPane.topAnchor="0.0">
+                  <AnchorPane fx:id="addWindow" layoutX="110.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #202020; -fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                     <children>
+                        <Label layoutX="145.0" layoutY="93.0" text="Add new client" textFill="WHITE" />
+                        <Label layoutX="151.0" layoutY="152.0" text="Client name" textFill="WHITE" />
+                        <TextField fx:id="nameAddTextField" layoutX="145.0" layoutY="184.0" />
+                        <Label layoutX="151.0" layoutY="242.0" text="Email" textFill="WHITE" />
+                        <TextField fx:id="emailAddTextField" layoutX="145.0" layoutY="274.0" />
+                        <Label layoutX="151.0" layoutY="334.0" text="Phone number" textFill="WHITE" />
+                        <TextField fx:id="phoneAddTextField" layoutX="145.0" layoutY="366.0" />
+                        <Label layoutX="151.0" layoutY="436.0" text="Department" textFill="WHITE" />
+                        <TextField fx:id="departmentAddTextField" layoutX="145.0" layoutY="468.0" />
+                        <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" />
+                        <Button mnemonicParsing="false" onAction="#addClient" text="Save" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="editWindow" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #202020; -fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                     <children>
+                        <Label layoutX="145.0" layoutY="93.0" text="Edit client profile" textFill="WHITE" />
+                        <Label layoutX="151.0" layoutY="152.0" text="Client name" textFill="WHITE" />
+                        <TextField fx:id="nameTextField" layoutX="145.0" layoutY="184.0" />
+                        <Label layoutX="151.0" layoutY="242.0" text="Email" textFill="WHITE" />
+                        <TextField fx:id="emailTextField" layoutX="145.0" layoutY="274.0" />
+                        <Label layoutX="151.0" layoutY="334.0" text="Phone number" textFill="WHITE" />
+                        <TextField fx:id="phoneTextField" layoutX="145.0" layoutY="366.0" />
+                        <Label layoutX="151.0" layoutY="436.0" text="Department" textFill="WHITE" />
+                        <TextField fx:id="departmentTextField" layoutX="145.0" layoutY="468.0" />
+                        <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" />
+                        <Button mnemonicParsing="false" onAction="#saveChanges" text="Save" />
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="mainWindow" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: #202020; -fx-view-order: 1;" AnchorPane.topAnchor="0.0">
                      <children>
                         <Text fill="WHITE" layoutX="74.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" wrappingWidth="112.00003662109384" AnchorPane.leftAnchor="74.0" AnchorPane.topAnchor="24.3896484375">
                            <font>
                               <Font size="33.0" />
                            </font>
                         </Text>
-                        <ScrollPane fitToHeight="true" hbarPolicy="NEVER" layoutX="-217.0" layoutY="125.0" style="-fx-background-color: #202020; -fx-border-color: #00000080;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="124.0">
+                        <ScrollPane fitToHeight="true" hbarPolicy="NEVER" layoutX="-217.0" layoutY="125.0" style="-fx-background-color: #202020; -fx-border-color: #00000080;" vbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="124.0">
                            <content>
                               <AnchorPane maxHeight="1.7976931348623157E308" prefWidth="1080.0" style="-fx-background-color: #202020;">
                                  <children>
-                                    <VBox fx:id="allClientsBox" maxHeight="1.7976931348623157E308" spacing="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <VBox fx:id="allClientsBox" maxHeight="1.7976931348623157E308" spacing="46.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <padding>
-                                          <Insets left="20.0" right="20.0" top="50.0" />
+                                          <Insets bottom="50.0" left="20.0" right="20.0" top="50.0" />
                                        </padding>
                                     </VBox>
                                  </children>
                               </AnchorPane>
                            </content>
                         </ScrollPane>
-                        <Button layoutX="317.0" layoutY="39.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #767676; -fx-background-radius: 10;" text="Add New Client" textFill="WHITE">
+                        <Button layoutX="317.0" layoutY="39.0" mnemonicParsing="false" onAction="#openAddWindow" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #767676; -fx-background-radius: 10;" text="Add New Client" textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>
