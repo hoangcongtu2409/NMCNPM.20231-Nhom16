@@ -109,7 +109,7 @@ public class Client {
         Connection connectDB = catConn.getConnection();
 
         String updateQuery = "UPDATE Client SET Name = N'" + name + "', Email = '" + email + "', " +
-                "Department = N'" + department + "', PhoneNumber = '" + phoneNumber + "' WHERE ClientID = '" + clientID + "'";
+                "Department = N'" + department + "', PhoneNumber = '" + phoneNumber + "' WHERE ClientID = " + clientID;
 
         try {
             Statement statement = connectDB.createStatement();
