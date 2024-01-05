@@ -1,7 +1,5 @@
 package teachingAidManagementSystem;
 
-import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
-import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -10,7 +8,7 @@ public class DatabaseConnection{
     public Connection getConnection() {
         String dbName = "DeviceManagement";
         String dbUser = "sa";
-        String dbPassword = "26082003";     //Pass này mỗi người tự đặt khác nhau
+        String dbPassword = "sa";     //Pass này mỗi người tự đặt khác nhau
         String url = "jdbc:sqlserver://localhost" + ";databaseName=" + dbName;
 
         try {
