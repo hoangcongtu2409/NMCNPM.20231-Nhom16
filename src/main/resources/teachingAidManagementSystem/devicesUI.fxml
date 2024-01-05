@@ -110,6 +110,9 @@
                               <TableColumn fx:id="brokenColumn" prefWidth="141.59991455078125" text="Broken" />
                               <TableColumn fx:id="editColumn" minWidth="0.0" prefWidth="0.0" />
                            </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
                         </TableView>
                         <Button layoutX="134.0" layoutY="117.0" mnemonicParsing="false" onAction="#openAddWindow" prefHeight="35.0" prefWidth="125.0" style="-fx-background-color: #767676; -fx-background-radius: 7;" text="Add New Device" textFill="WHITE" />
                         <Button fx:id="switchButton" layoutX="289.0" layoutY="117.0" mnemonicParsing="false" onAction="#switchTable" prefHeight="35.0" prefWidth="126.0" style="-fx-background-color: #C52727; -fx-background-radius: 7;" text="Broken Devices" textFill="WHITE" />
