@@ -100,7 +100,7 @@ public class ClientsUIController implements Initializable {
 
             while (rs.next()) {
                 Client newClient = new Client();
-                newClient.setClientID(rs.getString("ClientID"));
+                newClient.setClientID(rs.getInt("ClientID"));
                 newClient.setName(rs.getNString("Name"));
                 newClient.setEmail(rs.getString("Email"));
                 newClient.setPhoneNumber(rs.getString("PhoneNumber"));

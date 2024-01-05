@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Client {
-    private String clientID;
+    private int clientID;
     private String name;
     private String email;
     private String phoneNumber;
@@ -16,7 +16,7 @@ public class Client {
     public Client() {
     }
 
-    public Client(String clientID, String name, String email, String phoneNumber, String department) {
+    public Client(int clientID, String name, String email, String phoneNumber, String department) {
         this.clientID = clientID;
         this.name = name;
         this.email = email;
@@ -31,11 +31,11 @@ public class Client {
         this.department = department;
     }
 
-    public String getClientID() {
+    public int getClientID() {
         return clientID;
     }
 
-    public void setClientID(String clientID) {
+    public void setClientID(int clientID) {
         this.clientID = clientID;
     }
 
