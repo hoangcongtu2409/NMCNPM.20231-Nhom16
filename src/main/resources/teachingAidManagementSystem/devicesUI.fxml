@@ -126,6 +126,11 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
+                        <TextField layoutX="595.0" layoutY="49.0" prefHeight="46.0" prefWidth="421.0" promptText="Search Devices..." style="-fx-border-color: #3B3B3B; -fx-background-color: #202020; -fx-border-radius: 10;">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="addWindow" prefHeight="200.0" prefWidth="200.0" style="-fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
@@ -211,11 +216,6 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                  <TextField layoutX="595.0" layoutY="49.0" prefHeight="46.0" prefWidth="421.0" promptText="Search Devices..." style="-fx-border-color: #3B3B3B; -fx-background-color: #202020; -fx-border-radius: 10;">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </TextField>
                </children>
             </AnchorPane>
          </children>
