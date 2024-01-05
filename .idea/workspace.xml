@@ -31,9 +31,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="037c9d02-0f86-4393-9b6e-6609884fe474" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -112,6 +109,7 @@
       <updated>1698592691351</updated>
       <workItem from="1704360579008" duration="94000" />
       <workItem from="1704365291047" duration="1009000" />
+      <workItem from="1704422638938" duration="3000" />
     </task>
     <task id="LOCAL-00001" summary="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
       <created>1698592816848</created>
