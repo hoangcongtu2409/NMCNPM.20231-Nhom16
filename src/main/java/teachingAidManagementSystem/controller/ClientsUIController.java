@@ -53,10 +53,10 @@ public class ClientsUIController implements Initializable {
     private TextField departmentTextField;
     @FXML
     private VBox allClientsBox;
-    private List<HBox> frameList = new ArrayList<>();
+    private List<HBox> tripleFrameList = new ArrayList<>();
+    private List<AnchorPane> frameList = new ArrayList<>();
     private ObservableList<Client> clientList;
     private Client client;
-    private int paneNum = 0;
 
     @FXML
     public void switchToHome() throws IOException {
@@ -114,19 +114,20 @@ public class ClientsUIController implements Initializable {
     }
 
     private void addFrame(Client client) {
-        int i = paneNum;
+        int i = frameList.size();
         if (i % 3 == 0) {
             HBox hBox = new HBox();
             hBox.setPrefHeight(270.4);
             hBox.setSpacing(46);
             allClientsBox.getChildren().add(hBox);
-            frameList.add(hBox);
+            tripleFrameList.add(hBox);
         }
 
         AnchorPane pane = createPane(client);
 
-        int j = frameList.size() - 1;
-        frameList.get(j).getChildren().add(pane);
+        int j = tripleFrameList.size() - 1;
+        tripleFrameList.get(j).getChildren().add(pane);
+        frameList.add(pane);
     }
 
     private AnchorPane createPane(Client client) {
@@ -212,6 +213,7 @@ public class ClientsUIController implements Initializable {
     @FXML
     private void saveChanges() throws SQLException {
         Client updateClient = new Client();
+        updateClient.setClientID(client.getClientID());
         updateClient.setName(nameTextField.getText());
         updateClient.setEmail(emailTextField.getText());
         updateClient.setPhoneNumber(phoneTextField.getText());
@@ -223,7 +225,8 @@ public class ClientsUIController implements Initializable {
                 updateClient.updateClient();
 
                 AnchorPane pane = createPane(updateClient);
-                frameList.get(i / 3).getChildren().set(i % 3, pane);
+                tripleFrameList.get(i / 3).getChildren().set(i % 3, pane);
+                frameList.set(i, pane);
 
                 break;
             }
