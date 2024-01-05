@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.ClientsUIController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.ClientsUIController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -94,34 +94,100 @@
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <AnchorPane fx:id="addWindow" layoutX="110.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #202020; -fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                  <AnchorPane fx:id="addWindow" layoutX="110.0" layoutY="110.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000; -fx-view-order: 0; -fx-background-radius: 30;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
                      <children>
-                        <Label layoutX="145.0" layoutY="93.0" text="Add new client" textFill="WHITE" />
-                        <Label layoutX="151.0" layoutY="152.0" text="Client name" textFill="WHITE" />
-                        <TextField fx:id="nameAddTextField" layoutX="145.0" layoutY="184.0" />
-                        <Label layoutX="151.0" layoutY="242.0" text="Email" textFill="WHITE" />
-                        <TextField fx:id="emailAddTextField" layoutX="145.0" layoutY="274.0" />
-                        <Label layoutX="151.0" layoutY="334.0" text="Phone number" textFill="WHITE" />
-                        <TextField fx:id="phoneAddTextField" layoutX="145.0" layoutY="366.0" />
-                        <Label layoutX="151.0" layoutY="436.0" text="Department" textFill="WHITE" />
-                        <TextField fx:id="departmentAddTextField" layoutX="145.0" layoutY="468.0" />
-                        <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" />
-                        <Button mnemonicParsing="false" onAction="#addClient" text="Save" />
+                        <Label layoutX="73.0" layoutY="43.0" text="Add new client" textFill="WHITE" AnchorPane.leftAnchor="73.0" AnchorPane.topAnchor="43.0">
+                           <font>
+                              <Font size="36.0" />
+                           </font></Label>
+                        <Label layoutX="106.0" layoutY="108.0" text="Client name *" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="nameAddTextField" layoutX="107.0" layoutY="146.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="107.0" layoutY="209.0" text="Email" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="emailAddTextField" layoutX="107.0" layoutY="246.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="107.0" layoutY="306.0" text="Phone number" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="phoneAddTextField" layoutX="106.0" layoutY="345.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="107.0" layoutY="406.0" text="Address" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="departmentAddTextField" layoutX="106.0" layoutY="450.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Button layoutX="120.0" layoutY="525.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #C52727;" text="Cancel" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                        <Button layoutX="455.0" layoutY="524.0" mnemonicParsing="false" onAction="#addClient" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #767676;" text="Save" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="editWindow" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #202020; -fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+                  <AnchorPane fx:id="editWindow" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000; -fx-view-order: 0; -fx-background-radius: 30;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
                      <children>
-                        <Label layoutX="145.0" layoutY="93.0" text="Edit client profile" textFill="WHITE" />
-                        <Label layoutX="151.0" layoutY="152.0" text="Client name" textFill="WHITE" />
-                        <TextField fx:id="nameTextField" layoutX="145.0" layoutY="184.0" />
-                        <Label layoutX="151.0" layoutY="242.0" text="Email" textFill="WHITE" />
-                        <TextField fx:id="emailTextField" layoutX="145.0" layoutY="274.0" />
-                        <Label layoutX="151.0" layoutY="334.0" text="Phone number" textFill="WHITE" />
-                        <TextField fx:id="phoneTextField" layoutX="145.0" layoutY="366.0" />
-                        <Label layoutX="151.0" layoutY="436.0" text="Department" textFill="WHITE" />
-                        <TextField fx:id="departmentTextField" layoutX="145.0" layoutY="468.0" />
-                        <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" />
-                        <Button mnemonicParsing="false" onAction="#saveChanges" text="Save" />
+                        <Label layoutX="84.0" layoutY="49.0" prefHeight="54.0" prefWidth="295.0" text="Edit client profile" textFill="WHITE" AnchorPane.leftAnchor="84.0">
+                           <font>
+                              <Font size="36.0" />
+                           </font></Label>
+                        <Label layoutX="106.0" layoutY="111.0" text="Client name" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="nameTextField" layoutX="106.0" layoutY="149.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="104.0" layoutY="207.0" text="Email" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="emailTextField" layoutX="105.0" layoutY="245.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="105.0" layoutY="304.0" text="Phone number" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="phoneTextField" layoutX="107.0" layoutY="342.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Label layoutX="106.0" layoutY="397.0" text="Department" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                        <TextField fx:id="departmentTextField" layoutX="105.0" layoutY="438.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                           <font>
+                              <Font size="15.0" />
+                           </font></TextField>
+                        <Button layoutX="113.0" layoutY="522.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #C52727;" text="Cancel" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
+                        <Button layoutX="449.0" layoutY="522.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #767676;" text="Save" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Button>
                      </children></AnchorPane>
                   <AnchorPane fx:id="mainWindow" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: #202020; -fx-view-order: 1;" AnchorPane.topAnchor="0.0">
                      <children>
