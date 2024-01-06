@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.DevicesUIController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.DevicesUIController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -128,48 +128,6 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <AnchorPane fx:id="editWindow" layoutX="102.0" layoutY="221.0" prefHeight="526.0" prefWidth="880.0" style="-fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="174.0">
-                           <children>
-                              <Label layoutX="80.0" layoutY="120.0" text="Device ID *" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="idTextField" layoutX="80.0" layoutY="153.0" prefHeight="34.0" prefWidth="259.0" style="-fx-background-color: 202020; -fx-border-color: #767676; -fx-border-radius: 8;" />
-                              <Label layoutX="415.0" layoutY="119.0" text="Device name *" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="nameTextField" layoutX="415.0" layoutY="153.0" prefHeight="34.0" prefWidth="358.0" style="-fx-background-color: 202020; -fx-border-color: #767676; -fx-border-radius: 8;" />
-                              <Label layoutX="80.0" layoutY="227.0" text="Amount" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="amountTextField" layoutX="80.0" layoutY="262.0" prefHeight="34.0" prefWidth="166.0" style="-fx-background-color: 202020; -fx-border-color: #767676; -fx-border-radius: 8;" />
-                              <Label layoutX="80.0" layoutY="334.0" text="Usable Amount" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="usableTextField" layoutX="80.0" layoutY="379.0" prefHeight="34.0" prefWidth="166.0" style="-fx-background-color: 202020; -fx-border-color: #767676; -fx-border-radius: 8;" />
-                              <Label layoutX="415.0" layoutY="227.0" text="Broken Amount" textFill="WHITE">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="brokenTextField" layoutX="415.0" layoutY="262.0" prefHeight="34.0" prefWidth="181.0" style="-fx-background-color: 202020; -fx-border-color: #767676; -fx-border-radius: 8;" />
-                              <Button layoutX="395.0" layoutY="459.0" mnemonicParsing="false" onAction="#applyChanges" prefHeight="26.0" prefWidth="244.0" style="-fx-background-color: #767676;" text="Apply" textFill="WHITE" />
-                              <Button layoutX="722.0" layoutY="459.0" mnemonicParsing="false" onAction="#deleteDevice" prefHeight="26.0" prefWidth="101.0" style="-fx-background-color: #767676;" text="Delete" textFill="WHITE" />
-                              <Button layoutX="109.0" layoutY="459.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="26.0" prefWidth="244.0" style="-fx-background-color: #C52727;" text="Cancel" textFill="WHITE" />
-                              <Text fill="WHITE" layoutX="71.0" layoutY="82.0" stroke="BLACK" strokeType="OUTSIDE" text="Edit Device">
-                                 <font>
-                                    <Font size="37.0" />
-                                 </font>
-                              </Text>
-                           </children>
-                        </AnchorPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="addWindow" layoutY="174.4" prefHeight="526.0" prefWidth="880.0" style="-fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="174.0">
@@ -228,6 +186,48 @@
                         <Text fill="#767676" layoutX="141.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Amount will be 1 by default)">
                            <font>
                               <Font size="10.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="editWindow" layoutY="174.4" prefHeight="526.0" prefWidth="880.0" style="-fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="174.0">
+                     <children>
+                        <Label layoutX="80.0" layoutY="120.0" text="Device ID *" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="idTextField" layoutX="80.0" layoutY="153.0" prefHeight="34.0" prefWidth="259.0" style="-fx-background-color: 202020; -fx-border-color: #767676; -fx-border-radius: 8;" />
+                        <Label layoutX="415.0" layoutY="119.0" text="Device name *" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="nameTextField" layoutX="415.0" layoutY="153.0" prefHeight="34.0" prefWidth="358.0" style="-fx-background-color: 202020; -fx-border-color: #767676; -fx-border-radius: 8;" />
+                        <Label layoutX="80.0" layoutY="227.0" text="Amount" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="amountTextField" layoutX="80.0" layoutY="262.0" prefHeight="34.0" prefWidth="166.0" style="-fx-background-color: 202020; -fx-border-color: #767676; -fx-border-radius: 8;" />
+                        <Label layoutX="80.0" layoutY="334.0" text="Usable Amount" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="usableTextField" layoutX="80.0" layoutY="379.0" prefHeight="34.0" prefWidth="166.0" style="-fx-background-color: 202020; -fx-border-color: #767676; -fx-border-radius: 8;" />
+                        <Label layoutX="415.0" layoutY="227.0" text="Broken Amount" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="brokenTextField" layoutX="415.0" layoutY="262.0" prefHeight="34.0" prefWidth="181.0" style="-fx-background-color: 202020; -fx-border-color: #767676; -fx-border-radius: 8;" />
+                        <Button layoutX="395.0" layoutY="459.0" mnemonicParsing="false" onAction="#applyChanges" prefHeight="26.0" prefWidth="244.0" style="-fx-background-color: #767676;" text="Apply" textFill="WHITE" />
+                        <Button layoutX="722.0" layoutY="459.0" mnemonicParsing="false" onAction="#deleteDevice" prefHeight="26.0" prefWidth="101.0" style="-fx-background-color: #767676;" text="Delete" textFill="WHITE" />
+                        <Button layoutX="109.0" layoutY="459.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="26.0" prefWidth="244.0" style="-fx-background-color: #C52727;" text="Cancel" textFill="WHITE" />
+                        <Text fill="WHITE" layoutX="71.0" layoutY="82.0" stroke="BLACK" strokeType="OUTSIDE" text="Edit Device">
+                           <font>
+                              <Font size="37.0" />
                            </font>
                         </Text>
                      </children>
