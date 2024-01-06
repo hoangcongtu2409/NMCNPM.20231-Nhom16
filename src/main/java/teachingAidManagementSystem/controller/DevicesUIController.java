@@ -111,6 +111,7 @@ public class DevicesUIController implements Initializable {
         usableColumn.setCellValueFactory(new PropertyValueFactory<Device, Integer>("usable"));
         brokenColumn.setCellValueFactory(new PropertyValueFactory<Device, Integer>("broken"));
         allDevicesTable.setItems(deviceList);
+        addButtonToTable();
 
         idBrokenColumn.setCellValueFactory(new PropertyValueFactory<Device, String>("id"));
         nameBrokenColumn.setCellValueFactory(new PropertyValueFactory<Device, String>("name"));
@@ -118,7 +119,6 @@ public class DevicesUIController implements Initializable {
         descriptionBrokenColumn.setCellValueFactory(new PropertyValueFactory<Device, String>("description"));
         brokenDevicesTable.setItems(brokenList);
 
-        addButtonToTable();
     }
 
     //Lấy dữ liệu từ database
@@ -187,6 +187,10 @@ public class DevicesUIController implements Initializable {
         addWindow.setVisible(true);
         BoxBlur blur = new BoxBlur(5, 5, 3);
         mainWindow.setEffect(blur);
+        idAddTextField.setText(null);
+        nameAddTextField.setText(null);
+        amountAddTextField.setText(null);
+        descriptionAddTextField.setText(null);
     }
 
     //Mở của sổ chỉnh sửa thiết bị
@@ -218,6 +222,7 @@ public class DevicesUIController implements Initializable {
         newDevice.setId(idAddTextField.getText());
         newDevice.setName(nameAddTextField.getText());
         newDevice.setAmount(Integer.parseInt(amountAddTextField.getText()));
+        newDevice.setDescription(descriptionAddTextField.getText());
         deviceList.add(newDevice);
         if (newDevice.getBroken() != 0)
             brokenList.add(newDevice);
