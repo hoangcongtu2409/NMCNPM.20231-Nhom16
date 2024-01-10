@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.ClientsUIController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.ClientsUIController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -104,7 +104,7 @@
                            <font>
                               <Font size="24.0" />
                            </font></Label>
-                        <TextField fx:id="nameAddTextField" layoutX="107.0" layoutY="146.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                        <TextField fx:id="nameAddTextField" layoutX="107.0" layoutY="146.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;" stylesheets="@../../CSS/TextField.css">
                            <font>
                               <Font size="15.0" />
                            </font></TextField>
@@ -112,7 +112,7 @@
                            <font>
                               <Font size="24.0" />
                            </font></Label>
-                        <TextField fx:id="emailAddTextField" layoutX="107.0" layoutY="246.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                        <TextField fx:id="emailAddTextField" layoutX="107.0" layoutY="246.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;" stylesheets="@../../CSS/TextField.css">
                            <font>
                               <Font size="15.0" />
                            </font></TextField>
@@ -120,7 +120,7 @@
                            <font>
                               <Font size="24.0" />
                            </font></Label>
-                        <TextField fx:id="phoneAddTextField" layoutX="106.0" layoutY="345.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                        <TextField fx:id="phoneAddTextField" layoutX="106.0" layoutY="345.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;" stylesheets="@../../CSS/TextField.css">
                            <font>
                               <Font size="15.0" />
                            </font></TextField>
@@ -128,7 +128,7 @@
                            <font>
                               <Font size="24.0" />
                            </font></Label>
-                        <TextField fx:id="departmentAddTextField" layoutX="106.0" layoutY="450.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;">
+                        <TextField fx:id="departmentAddTextField" layoutX="106.0" layoutY="450.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-color: #767676; -fx-border-radius: 10;" stylesheets="@../../CSS/TextField.css">
                            <font>
                               <Font size="15.0" />
                            </font></TextField>
@@ -152,7 +152,7 @@
                            <font>
                               <Font size="24.0" />
                            </font></Label>
-                        <TextField fx:id="nameTextField" layoutX="106.0" layoutY="149.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                        <TextField fx:id="nameTextField" layoutX="106.0" layoutY="149.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;" stylesheets="@../../CSS/TextField.css">
                            <font>
                               <Font size="15.0" />
                            </font></TextField>
@@ -160,7 +160,7 @@
                            <font>
                               <Font size="24.0" />
                            </font></Label>
-                        <TextField fx:id="emailTextField" layoutX="105.0" layoutY="245.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                        <TextField fx:id="emailTextField" layoutX="105.0" layoutY="245.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;" stylesheets="@../../CSS/TextField.css">
                            <font>
                               <Font size="15.0" />
                            </font></TextField>
@@ -168,7 +168,7 @@
                            <font>
                               <Font size="24.0" />
                            </font></Label>
-                        <TextField fx:id="phoneTextField" layoutX="107.0" layoutY="342.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                        <TextField fx:id="phoneTextField" layoutX="107.0" layoutY="342.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;" stylesheets="@../../CSS/TextField.css">
                            <font>
                               <Font size="15.0" />
                            </font></TextField>
@@ -176,7 +176,7 @@
                            <font>
                               <Font size="24.0" />
                            </font></Label>
-                        <TextField fx:id="departmentTextField" layoutX="105.0" layoutY="438.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;">
+                        <TextField fx:id="departmentTextField" layoutX="105.0" layoutY="438.0" prefHeight="42.0" prefWidth="648.0" style="-fx-background-color: #202020; -fx-border-radius: 10; -fx-border-color: #767676;" stylesheets="@../../CSS/TextField.css">
                            <font>
                               <Font size="15.0" />
                            </font></TextField>
