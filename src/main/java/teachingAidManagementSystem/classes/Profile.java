@@ -5,18 +5,13 @@ import javafx.scene.image.Image;
 public class Profile {
     private String username;
     private String password;
+    private String name;
     private String email;
     private String phone;
     private String address;
     private Image image;
 
-    public Profile(String username, String password, String email, String phone, String address, Image image) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.phone = phone;
-        this.address = address;
-        this.image = image;
+    public Profile() {
     }
 
     public String getUsername() {
@@ -33,6 +28,14 @@ public class Profile {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {

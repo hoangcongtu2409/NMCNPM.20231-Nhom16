@@ -1,11 +1,19 @@
 package teachingAidManagementSystem.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import teachingAidManagementSystem.App;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class HomeUIController {
+import static teachingAidManagementSystem.controller.LoginUIController.admin;
+
+public class HomeUIController implements Initializable {
+    @FXML
+    private Label adminName;
     @FXML
     public void switchToHome() throws IOException {
         App.setRoot("homeUI");
@@ -25,5 +33,11 @@ public class HomeUIController {
     @FXML
     public void switchToProfile() throws IOException {
         App.setRoot("profileUI");
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        adminName.setText(admin.getName());
     }
 }

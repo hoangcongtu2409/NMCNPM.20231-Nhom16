@@ -13,6 +13,7 @@ import java.util.ResourceBundle;
 public class ProfileUIController implements Initializable {
     @FXML
     private TextField nameTextField;
+
     @FXML
     public void switchToHome() throws IOException {
         App.setRoot("homeUI");

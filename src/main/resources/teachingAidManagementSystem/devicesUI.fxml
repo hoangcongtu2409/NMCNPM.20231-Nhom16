@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.DevicesUIController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.DevicesUIController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -30,7 +30,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="devicesButton" layoutX="-11.2" layoutY="192.0" onMouseClicked="#switchToDevices" prefHeight="54.0" prefWidth="180.0" style="-fx-background-color: #082E66; -fx-background-radius: 10;" text="             Devices" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="-11.0">
+                  <Label fx:id="devicesButton" layoutX="-11.2" layoutY="192.0" onMouseClicked="#switchToDevices" prefHeight="54.0" prefWidth="180.0" style="-fx-background-color: #082E66; -fx-background-radius: 10;" text="             Devices" textAlignment="CENTER" textFill="#89b9ff" AnchorPane.leftAnchor="-11.0">
                      <font>
                         <Font size="20.0" />
                      </font>
