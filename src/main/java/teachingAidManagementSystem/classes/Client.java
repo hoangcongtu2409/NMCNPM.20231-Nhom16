@@ -88,7 +88,7 @@ public class Client {
         }
     }
 
-    public void deleteClient() throws SQLException {
+    public void deleteClient() {
         DatabaseConnection catConn = new DatabaseConnection();
         Connection connectDB = catConn.getConnection();
 

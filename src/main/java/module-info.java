@@ -5,6 +5,7 @@ module teachingAidManagementSystem {
     requires java.naming;
     requires java.desktop;
     requires com.microsoft.sqlserver.jdbc;
+    requires fontawesomefx;
 
     opens teachingAidManagementSystem to javafx.fxml;
     exports teachingAidManagementSystem;

@@ -10,13 +10,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import teachingAidManagementSystem.App;
 import teachingAidManagementSystem.DatabaseConnection;
 import teachingAidManagementSystem.classes.Client;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,8 +24,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ClientsUIController implements Initializable {
@@ -52,9 +50,7 @@ public class ClientsUIController implements Initializable {
     @FXML
     private TextField departmentTextField;
     @FXML
-    private VBox allClientsBox;
-    private List<HBox> tripleFrameList = new ArrayList<>();
-    private List<AnchorPane> frameList = new ArrayList<>();
+    private FlowPane allClientPane;
     private ObservableList<Client> clientList;
     private Client client;
 
@@ -85,7 +81,8 @@ public class ClientsUIController implements Initializable {
         getDataList();
 
         for(Client x : clientList) {
-            addFrame(x);
+            AnchorPane pane = createPane(x);
+            allClientPane.getChildren().add(pane);
         }
     }
 
@@ -111,23 +108,6 @@ public class ClientsUIController implements Initializable {
             e.printStackTrace();
             e.getCause();
         }
-    }
-
-    private void addFrame(Client client) {
-        int i = frameList.size();
-        if (i % 3 == 0) {
-            HBox hBox = new HBox();
-            hBox.setPrefHeight(270.4);
-            hBox.setSpacing(46);
-            allClientsBox.getChildren().add(hBox);
-            tripleFrameList.add(hBox);
-        }
-
-        AnchorPane pane = createPane(client);
-
-        int j = tripleFrameList.size() - 1;
-        tripleFrameList.get(j).getChildren().add(pane);
-        frameList.add(pane);
     }
 
     private AnchorPane createPane(Client client) {
@@ -157,13 +137,24 @@ public class ClientsUIController implements Initializable {
             openEditWindow();
         });
 
-        pane.getChildren().addAll(nameLabel, departmentLabel, btn);
+        FontAwesomeIcon icon = new FontAwesomeIcon();
+        icon.setGlyphName("TIMES");
+        icon.setSize("20");
+        icon.setFill(Paint.valueOf("WHITE"));
+        icon.setOnMouseClicked(e -> {
+            this.client = client;
+            deleteClient();
+        });
+
+        pane.getChildren().addAll(nameLabel, departmentLabel, btn, icon);
         AnchorPane.setTopAnchor(nameLabel, 145.0);
         AnchorPane.setLeftAnchor(nameLabel, 27.0);
         AnchorPane.setTopAnchor(departmentLabel, 184.0);
         AnchorPane.setLeftAnchor(departmentLabel, 27.0);
         AnchorPane.setTopAnchor(btn, 225.0);
         AnchorPane.setLeftAnchor(btn, 60.8);
+        AnchorPane.setTopAnchor(icon, 10.0);
+        AnchorPane.setRightAnchor(icon, 10.8);
         pane.setStyle("-fx-background-color: #3B3B3B;-fx-background-radius: 20; -fx-border-radius: 20;");
 
         return pane;
@@ -206,12 +197,14 @@ public class ClientsUIController implements Initializable {
         newClient.setDepartment(departmentAddTextField.getText());
         clientList.add(newClient);
         newClient.addClient();
-        addFrame(newClient);
+
+        AnchorPane pane = createPane(newClient);
+        allClientPane.getChildren().add(pane);
         closePopup();
     }
 
     @FXML
-    private void saveChanges() throws SQLException {
+    private void saveChanges() {
         Client updateClient = new Client();
         updateClient.setClientID(client.getClientID());
         updateClient.setName(nameTextField.getText());
@@ -225,12 +218,22 @@ public class ClientsUIController implements Initializable {
                 updateClient.updateClient();
 
                 AnchorPane pane = createPane(updateClient);
-                tripleFrameList.get(i / 3).getChildren().set(i % 3, pane);
-                frameList.set(i, pane);
+                allClientPane.getChildren().set(i, pane);
 
                 break;
             }
         }
         closePopup();
+    }
+
+    public void deleteClient() {
+        client.deleteClient();
+        for (int i = 0; i < clientList.size(); i++) {
+            if (clientList.get(i).equals(client)) {
+                clientList.remove(i);
+                allClientPane.getChildren().remove(i);
+                break;
+            }
+        }
     }
 }
