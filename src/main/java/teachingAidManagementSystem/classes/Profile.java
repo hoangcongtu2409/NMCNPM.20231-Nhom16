@@ -1,8 +1,9 @@
 package teachingAidManagementSystem.classes;
 
 import javafx.scene.image.Image;
+import teachingAidManagementSystem.model.BaseModel;
 
-public class Profile {
+public class Profile extends BaseModel {
     private String username;
     private String password;
     private String name;

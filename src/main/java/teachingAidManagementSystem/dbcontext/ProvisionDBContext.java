@@ -16,7 +16,7 @@ public class ProvisionDBContext extends BaseDBContext<Provision> {
         try {
             return new Provision(
                     rs.getInt("ProvisionID"),
-                    rs.getString("ClientID"),
+                    rs.getInt("ClientID"),
                     rs.getString("DeviceID"),
                     rs.getInt("BorrowCourse"),
                     rs.getDate("BorrowDate"),
@@ -85,7 +85,7 @@ public class ProvisionDBContext extends BaseDBContext<Provision> {
                     + "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
             statement = connection.prepareStatement(sql, statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, provision.getProvisionID());
-            statement.setString(2, provision.getClientID());
+            statement.setInt(2, provision.getClientID());
             statement.setString(3, provision.getDeviceID());
             statement.setInt(4, provision.getBorrowCourse());
             statement.setDate(5, provision.getBorrowDate());

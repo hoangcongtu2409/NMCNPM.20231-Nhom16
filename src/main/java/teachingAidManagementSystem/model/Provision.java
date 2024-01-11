@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Provision extends BaseModel {
     private int provisionID;
-    private String clientID;
+    private int clientID;
     private String deviceID;
     private int borrowCourse;
     private Date borrowDate;
@@ -17,7 +17,7 @@ public class Provision extends BaseModel {
 
     }
 
-    public Provision(int provisionID, String clientID, String deviceID, int borrowCourse, Date borrowDate,
+    public Provision(int provisionID, int clientID, String deviceID, int borrowCourse, Date borrowDate,
                      int returnCourse, Date returnDate, int amount)
     {
         this.provisionID = provisionID;
@@ -38,11 +38,11 @@ public class Provision extends BaseModel {
         this.provisionID = provisionID;
     }
 
-    public String getClientID() {
+    public int getClientID() {
         return clientID;
     }
 
-    public void setClientID(String clientID) {
+    public void setClientID(int clientID) {
         this.clientID = clientID;
     }
 

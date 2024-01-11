@@ -2,7 +2,10 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -15,7 +18,7 @@
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="leftAnchorPane" prefHeight="200.0" prefWidth="200.0">
                <children>
                   <AnchorPane prefHeight="800.0" prefWidth="200.0" style="-fx-background-color: #000000;">
                      <children>
@@ -90,7 +93,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+            <AnchorPane fx:id="mainAnchorPane" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
                   <AnchorPane fx:id="mainWindow" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: #202020;" AnchorPane.topAnchor="0.0">
                      <children>
@@ -99,22 +102,191 @@
                               <Font size="33.0" />
                            </font>
                         </Text>
-                        <AnchorPane layoutX="-1.0" layoutY="126.0" prefHeight="674.0" prefWidth="1080.0" style="-fx-border-color: #00000080;" AnchorPane.bottomAnchor="0.0" />
-                        <Button layoutX="317.0" layoutY="39.0" mnemonicParsing="false" onAction="#showMakeProvisionPopup" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #767676; -fx-background-radius: 10;" text="Make Provision" textFill="WHITE">
+                        <Button fx:id="openAddProvisionPopupBtn" layoutX="251.0" layoutY="30.0" mnemonicParsing="false" onAction="#openAddProvisionPopup" prefHeight="53.0" prefWidth="210.0" style="-fx-background-color: #767676; -fx-background-radius: 10;" text="Make Provision" textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>
                         </Button>
-                        <TextField layoutX="577.0" layoutY="39.0" prefHeight="46.0" prefWidth="421.0" promptText="Search Transactions..." style="-fx-border-color: #3B3B3B; -fx-background-color: #202020; -fx-border-radius: 10;">
+                        <TextField layoutX="547.0" layoutY="32.0" prefHeight="53.0" prefWidth="451.0" promptText="Search Transactions..." style="-fx-border-color: #3B3B3B; -fx-background-color: #202020; -fx-border-radius: 10;">
                            <font>
                               <Font size="19.0" />
                            </font>
                         </TextField>
+                        <AnchorPane fx:id="provisionTablePopup" layoutX="-1.0" layoutY="126.0" prefHeight="674.0" prefWidth="1080.0" style="-fx-border-color: #00000080;" visible="false" AnchorPane.bottomAnchor="0.0">
+                           <children>
+                              <TableView id="provisionTable" fx:id="provisionTable" layoutX="69.0" layoutY="39.0" prefHeight="567.0" prefWidth="938.0" stylesheets="@../../CSS/TAnk.css">
+                                <columns>
+                                  <TableColumn id="idProvisionColumn" fx:id="idProvisionColumn" editable="false" prefWidth="224.0" sortable="false" text="Provision Number" />
+                                  <TableColumn id="deviceProvisionColumn" fx:id="deviceProvisionColumn" editable="false" minWidth="0.0" prefWidth="161.0" sortable="false" text="Device" />
+                                    <TableColumn id="amountProvisionColumn" fx:id="amountProvisionColumn" editable="false" minWidth="0.0" prefWidth="161.0" sortable="false" text="Amount" />
+                                    <TableColumn id="clientProvisionColumn" fx:id="clientProvisionColumn" editable="false" minWidth="0.0" prefWidth="250.0" sortable="false" text="Client" />
+                                    <TableColumn id="actionProvisionColumn" fx:id="actionProvisionColumn" minWidth="0.0" prefWidth="141.0" text="Action" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
+                        <AnchorPane fx:id="provisionDetailPopup" layoutX="70.0" layoutY="134.0" prefHeight="567.0" prefWidth="938.0" visible="false">
+                           <children>
+                              <Text fill="WHITE" layoutX="53.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Provision Detail" wrappingWidth="239.0">
+                                 <font>
+                                    <Font size="33.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="#a1a0a0" layoutX="53.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Provision" wrappingWidth="86.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="provisionId" fill="#a1a0a0" layoutX="139.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="#10000" wrappingWidth="523.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="103.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Device ID" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="provisionDeviceId" fill="#a49e9e" layoutX="644.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MIC" textAlignment="RIGHT" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="103.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client ID" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="provisionClientId" fill="#a49e9e" layoutX="655.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SOICT003" textAlignment="RIGHT" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="103.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Device Name" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="provisionDeviceName" fill="#a49e9e" layoutX="655.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Microphone" textAlignment="RIGHT" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="103.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client Name" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="provisionClientName" fill="#a49e9e" layoutX="588.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duong Xuan Chinh" textAlignment="RIGHT" wrappingWidth="255.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="103.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="provisionAmount" fill="#a49e9e" layoutX="655.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" textAlignment="RIGHT" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="103.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Time" wrappingWidth="209.99999999999977">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="provisionBorrowTime" fill="#a49e9e" layoutX="633.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Time" textAlignment="RIGHT" wrappingWidth="209.99999999999977">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="103.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Time" wrappingWidth="209.99999999999977">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="provisionReturnTime" fill="#a49e9e" layoutX="633.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Time" textAlignment="RIGHT" wrappingWidth="209.99999999999977">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="103.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="provisionStatus" fill="#a49e9e" layoutX="655.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status" textAlignment="RIGHT" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="cancelButton" cancelButton="true" layoutX="227.0" layoutY="485.0" mnemonicParsing="false" onAction="#closeProvisionDetailPopup" prefHeight="53.0" prefWidth="210.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Cancel" textFill="WHITE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="returnButton" layoutX="486.0" layoutY="485.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="210.0" style="-fx-background-color: #767676; -fx-background-radius: 10;" text="Return Device" textFill="WHITE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="addProvisionPopup" layoutX="80.0" layoutY="144.0" prefHeight="567.0" prefWidth="938.0">
+                           <children>
+                              <Text fill="WHITE" layoutX="54.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make New Provision" wrappingWidth="346.0">
+                                 <font>
+                                    <Font size="33.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="103.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Device" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="528.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client" wrappingWidth="188.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="104.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Course(borrow date will be changed to today)" wrappingWidth="667.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="103.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Course(return date will be changed to today)" wrappingWidth="580.0">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Text fill="WHITE" layoutX="103.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="209.99999999999977">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Text>
+                              <Button fx:id="cancelAddButton" cancelButton="true" layoutX="227.0" layoutY="485.0" mnemonicParsing="false" onAction="#closeMakeProvisionPopup" prefHeight="53.0" prefWidth="210.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Cancel" textFill="WHITE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="returnButton1" layoutX="486.0" layoutY="485.0" mnemonicParsing="false" onAction="#addNewProvision" prefHeight="53.0" prefWidth="239.0" style="-fx-background-color: #767676; -fx-background-radius: 10;" text="Make New Provision" textFill="WHITE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="inputBorrowCourse" layoutX="103.0" layoutY="225.0" />
+                              <TextField fx:id="inputReturnCourse" layoutX="103.0" layoutY="304.0" />
+                              <TextField fx:id="inputAmount" layoutX="103.0" layoutY="385.0" />
+                              <ComboBox fx:id="deviceComboBox" layoutX="104.0" layoutY="151.0" prefHeight="26.0" prefWidth="200.0" />
+                              <ComboBox fx:id="clientComboBox" layoutX="528.0" layoutY="151.0" prefHeight="26.0" prefWidth="200.0" />
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="addProvisionPopup" prefHeight="200.0" prefWidth="200.0" style="-fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+            <AnchorPane fx:id="rightAnchorPane" prefHeight="200.0" prefWidth="200.0" style="-fx-view-order: 0;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
                <children>
                   <VBox>
                      <children>
@@ -144,8 +316,8 @@
                         </HBox>
                         <HBox prefHeight="25.6" prefWidth="200.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#addProvision" text="Add" />
-                              <Button mnemonicParsing="false" onAction="#closePopup" text="Cancel" />
+                              <Button mnemonicParsing="false" text="Add" />
+                              <Button mnemonicParsing="false" text="Cancel" />
                            </children>
                         </HBox>
                      </children>
