@@ -38,6 +38,6 @@ public class HomeUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        adminName.setText(admin.getName());
+        adminName.setText("Welcome back, " + admin.getName() + "!");
     }
 }

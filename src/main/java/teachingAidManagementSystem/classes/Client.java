@@ -71,7 +71,7 @@ public class Client {
         this.department = department;
     }
 
-    public void addClient() throws SQLException {
+    public void addClient() {
         DatabaseConnection catConn = new DatabaseConnection();
         Connection connectDB = catConn.getConnection();
 

@@ -23,7 +23,6 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ClientsUIController implements Initializable {
@@ -140,7 +139,7 @@ public class ClientsUIController implements Initializable {
         FontAwesomeIcon icon = new FontAwesomeIcon();
         icon.setGlyphName("TIMES");
         icon.setSize("20");
-        icon.setFill(Paint.valueOf("WHITE"));
+        icon.setFill(Paint.valueOf("#767676"));
         icon.setOnMouseClicked(e -> {
             this.client = client;
             deleteClient();
@@ -153,8 +152,8 @@ public class ClientsUIController implements Initializable {
         AnchorPane.setLeftAnchor(departmentLabel, 27.0);
         AnchorPane.setTopAnchor(btn, 225.0);
         AnchorPane.setLeftAnchor(btn, 60.8);
-        AnchorPane.setTopAnchor(icon, 10.0);
-        AnchorPane.setRightAnchor(icon, 10.8);
+        AnchorPane.setTopAnchor(icon, 15.0);
+        AnchorPane.setRightAnchor(icon, 15.0);
         pane.setStyle("-fx-background-color: #3B3B3B;-fx-background-radius: 20; -fx-border-radius: 20;");
 
         return pane;
@@ -166,6 +165,10 @@ public class ClientsUIController implements Initializable {
         addWindow.setVisible(true);
         BoxBlur blur = new BoxBlur(5, 5, 3);
         mainWindow.setEffect(blur);
+        nameAddTextField.setText(null);
+        emailAddTextField.setText(null);
+        phoneAddTextField.setText(null);
+        departmentAddTextField.setText(null);
     }
 
     @FXML
@@ -189,14 +192,34 @@ public class ClientsUIController implements Initializable {
     }
 
     @FXML
-    private void addClient() throws SQLException {
+    private void addClient() {
         Client newClient = new Client();
         newClient.setName(nameAddTextField.getText());
         newClient.setEmail(emailAddTextField.getText());
         newClient.setPhoneNumber(phoneAddTextField.getText());
         newClient.setDepartment(departmentAddTextField.getText());
-        clientList.add(newClient);
         newClient.addClient();
+
+        DatabaseConnection catConn = new DatabaseConnection();
+        Connection connectDB = catConn.getConnection();
+
+        String getClientID = "SELECT TOP 1 ClientID\n" +
+                "FROM Client\n" +
+                "ORDER BY ClientID DESC";
+
+        try {
+            PreparedStatement statement = connectDB.prepareStatement(getClientID);
+            ResultSet rs = statement.executeQuery();
+
+            rs.next();
+            newClient.setClientID(rs.getInt("ClientID"));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getCause();
+        }
+
+        clientList.add(newClient);
 
         AnchorPane pane = createPane(newClient);
         allClientPane.getChildren().add(pane);
