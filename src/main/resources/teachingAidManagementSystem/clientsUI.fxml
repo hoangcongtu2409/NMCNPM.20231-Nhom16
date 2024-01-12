@@ -132,11 +132,11 @@
                            <font>
                               <Font size="15.0" />
                            </font></TextField>
-                        <Button layoutX="120.0" layoutY="525.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #C52727;" text="Cancel" textFill="WHITE">
+                        <Button layoutX="120.0" layoutY="525.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="40.0" prefWidth="299.0" stylesheets="@../../CSS/RedButton.css" text="Cancel" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font></Button>
-                        <Button layoutX="455.0" layoutY="524.0" mnemonicParsing="false" onAction="#addClient" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #767676;" text="Save" textFill="WHITE">
+                        <Button layoutX="455.0" layoutY="524.0" mnemonicParsing="false" onAction="#addClient" prefHeight="40.0" prefWidth="299.0" stylesheets="@../../CSS/ButtonGreen.css" text="Save" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font></Button>
@@ -180,11 +180,11 @@
                            <font>
                               <Font size="15.0" />
                            </font></TextField>
-                        <Button layoutX="113.0" layoutY="522.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #C52727;" text="Cancel" textFill="WHITE">
+                        <Button layoutX="113.0" layoutY="522.0" mnemonicParsing="false" onAction="#closePopup" prefHeight="40.0" prefWidth="299.0" stylesheets="@../../CSS/RedButton.css" text="Cancel" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font></Button>
-                        <Button layoutX="449.0" layoutY="522.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="40.0" prefWidth="299.0" style="-fx-background-color: #767676;" text="Save" textFill="WHITE">
+                        <Button layoutX="449.0" layoutY="522.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="40.0" prefWidth="299.0" stylesheets="@../../CSS/ButtonGreen.css" text="Save" textFill="WHITE">
                            <font>
                               <Font size="18.0" />
                            </font></Button>
@@ -205,7 +205,7 @@
                               </FlowPane>
                            </content>
                         </ScrollPane>
-                        <Button layoutX="317.0" layoutY="39.0" mnemonicParsing="false" onAction="#openAddWindow" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #767676; -fx-background-radius: 10;" text="Add New Client" textFill="WHITE">
+                        <Button layoutX="317.0" layoutY="39.0" mnemonicParsing="false" onAction="#openAddWindow" prefHeight="46.0" prefWidth="207.0" style="-fx-background-radius: 10;" stylesheets="@../../CSS/ButtonGreen.css" text="Add New Client" textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>
