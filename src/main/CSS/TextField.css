@@ -1,3 +1,8 @@
 .text-input {
     -fx-text-fill: white;
 }
+
+.combo-box-base{
+    -fx-background-color: #202020;
+    -fx-text-fill: white;
+}
