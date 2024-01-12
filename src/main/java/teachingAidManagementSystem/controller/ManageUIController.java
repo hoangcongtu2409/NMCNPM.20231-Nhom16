@@ -75,11 +75,23 @@ public class ManageUIController implements Initializable {
     @FXML
     private TableColumn<Provision, Void> actionProvisionColumn;
 
+
     private ProvisionDBContext provisionDB;
     private DeviceDBContext deviceDB;
     private ClientDBContext clientDB;
     private ObservableList<Provision> provisions;
     private Provision provision;
+
+    @FXML
+    private AnchorPane returnWindow;
+    @FXML
+    private Label provisionId1;
+    @FXML
+    private TextField brokenDevice;
+    @FXML
+    private Label allDevice;
+    @FXML
+    private TextArea description;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -135,7 +147,7 @@ public class ManageUIController implements Initializable {
         actionProvisionColumn.setCellFactory(cellFactory);
     }
 
-    private void showDetailPopup() {
+    public void showDetailPopup() {
         provisionId.setText(String.valueOf(provision.getProvisionID()));
         provisionDeviceId.setText(provision.getDeviceID());
         provisionDeviceName.setText(provision.getDeviceName());
@@ -201,9 +213,11 @@ public class ManageUIController implements Initializable {
         inputBorrowDate.setText(String.valueOf(LocalDate.now()));
         inputReturnCourse.setText(null);
         inputReturnDate.setText(String.valueOf(LocalDate.now()));
+        inputAmount.setText(null);
 
         addProvisionPopup.setVisible(true);
         provisionTablePopup.setVisible(false);
+        returnWindow.setVisible(false);
         provisionDetailPopup.setVisible(false);
     }
 
@@ -228,6 +242,34 @@ public class ManageUIController implements Initializable {
 
         provisionTablePopup.setVisible(true);
         addProvisionPopup.setVisible(false);
+    }
+
+    @FXML
+    public void openReturnDevice() {
+        provisionDetailPopup.setVisible(false);
+        returnWindow.setVisible(true);
+        provisionId1.setText("Provision #" + String.valueOf(provision.getProvisionID()));
+        allDevice.setText("/ " + String.valueOf(provision.getAmount()));
+        brokenDevice.setText(null);
+        description.setText(null);
+    }
+    @FXML
+    public void cancelReturnDevice() {
+        provisionId.setText(String.valueOf(provision.getProvisionID()));
+        provisionDeviceId.setText(provision.getDeviceID());
+        provisionDeviceName.setText(provision.getDeviceName());
+        provisionClientId.setText(String.valueOf(provision.getClientID()));
+        provisionClientName.setText(provision.getClientName());
+        provisionAmount.setText(String.valueOf(provision.getAmount()));
+        provisionStatus.setText("Waiting");
+        provisionDetailPopup.setVisible(true);
+        returnWindow.setVisible(false);
+        provisionTablePopup.setVisible(false);
+    }
+    @FXML
+    public void confirmReturnDevice() {
+        returnWindow.setVisible(false);
+        provisionTablePopup.setVisible(true);
     }
 }
 
