@@ -26,7 +26,7 @@ public abstract class BaseDBContext<T extends BaseModel> {
 
     public abstract ArrayList<T> list();
     public abstract T get(int id);
-    public abstract T insert(T model);
+    public abstract T insert(T model) throws SQLException;
     public abstract void update(T model);
-    public abstract void delete(int id);
+    public abstract void delete(T mode) throws SQLException;
 }

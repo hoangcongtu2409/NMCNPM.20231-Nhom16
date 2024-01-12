@@ -1,8 +1,6 @@
 package teachingAidManagementSystem.dbcontext;
 
-import teachingAidManagementSystem.classes.Device;
 import teachingAidManagementSystem.model.DeviceModel;
-import teachingAidManagementSystem.model.Provision;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,7 +62,7 @@ public class DeviceDBContext extends BaseDBContext<DeviceModel> {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(DeviceModel mode) throws SQLException {
 
     }
 }

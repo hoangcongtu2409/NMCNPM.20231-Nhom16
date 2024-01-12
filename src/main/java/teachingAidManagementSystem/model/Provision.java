@@ -17,6 +17,8 @@ public class Provision extends BaseModel {
     private int returnCourse;
     private Date returnDate;
     private int amount;
+    private int broken;
+    private String description;
 
     public Provision()
     {
@@ -124,5 +126,21 @@ public class Provision extends BaseModel {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public int getBroken() {
+        return broken;
+    }
+
+    public void setBroken(int broken) {
+        this.broken = broken;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

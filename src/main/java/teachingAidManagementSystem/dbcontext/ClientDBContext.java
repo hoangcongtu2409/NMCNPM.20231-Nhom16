@@ -1,9 +1,6 @@
 package teachingAidManagementSystem.dbcontext;
 
-import teachingAidManagementSystem.classes.Client;
 import teachingAidManagementSystem.model.ClientModel;
-import teachingAidManagementSystem.model.DeviceModel;
-import teachingAidManagementSystem.model.Provision;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,7 +61,7 @@ public class ClientDBContext extends BaseDBContext<ClientModel> {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(ClientModel mode) throws SQLException {
 
     }
 }

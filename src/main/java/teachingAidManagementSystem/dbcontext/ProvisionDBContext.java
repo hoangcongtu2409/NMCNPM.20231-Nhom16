@@ -1,10 +1,9 @@
 package teachingAidManagementSystem.dbcontext;
 
+import teachingAidManagementSystem.DatabaseConnection;
 import teachingAidManagementSystem.model.Provision;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -86,9 +85,8 @@ public class ProvisionDBContext extends BaseDBContext<Provision> {
     }
 
     @Override
-    public Provision insert(Provision provision) {
+    public Provision insert(Provision provision) throws SQLException {
         PreparedStatement statement = null;
-        try {
             String sql = "INSERT INTO [Provision]\n"
                     + "           ([ClientID]\n"
                     + "           ,[DeviceID]\n"
@@ -111,17 +109,6 @@ public class ProvisionDBContext extends BaseDBContext<Provision> {
             if (rs.next()) {
                 return provision;
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(ProvisionDBContext.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(ProvisionDBContext.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
 
         return null;
     }
@@ -132,7 +119,13 @@ public class ProvisionDBContext extends BaseDBContext<Provision> {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Provision provision) throws SQLException {
+        DatabaseConnection catConn = new DatabaseConnection();
+        Connection connectDB = catConn.getConnection();
 
+        String deleteQuery = "DELETE FROM Provision WHERE ProvisionID = " + provision.getProvisionID();
+
+        Statement statement = connectDB.createStatement();
+        statement.executeUpdate(deleteQuery);
     }
 }

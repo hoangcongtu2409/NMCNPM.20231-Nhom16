@@ -22,6 +22,7 @@ import teachingAidManagementSystem.model.Provision;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -75,8 +76,6 @@ public class ManageUIController implements Initializable {
 
     @FXML
     private TableColumn<Provision, Void> actionProvisionColumn;
-
-
     private ProvisionDBContext provisionDB;
     private DeviceDBContext deviceDB;
     private ClientDBContext clientDB;
@@ -244,11 +243,26 @@ public class ManageUIController implements Initializable {
         provision.setReturnCourse(Integer.parseInt(inputReturnCourse.getText()));
         provision.setReturnDate(java.sql.Date.valueOf(inputReturnDate.getText()));
         provision.setAmount(Integer.parseInt(inputAmount.getText()));
-        provisionDB.insert(provision);
-        provision.setProvisionID(provisionDB.getLatestID());
-        provisions.add(provision);
 
-        closeMakeProvisionPopup();
+        try {
+            provisionDB.insert(provision);
+            provision.setProvisionID(provisionDB.getLatestID());
+            provisions.add(provision);
+
+            closeMakeProvisionPopup();
+        } catch (SQLException e) {
+            // Kiểm tra xem lỗi có phải là "Insufficient amount of usable devices" hay không
+            if (e.getErrorCode() == 51000) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Insufficient amount of usable devices");
+                alert.showAndWait();
+            } else {
+                // Xử lý các lỗi khác theo cách thích hợp
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML
@@ -262,18 +276,15 @@ public class ManageUIController implements Initializable {
     }
     @FXML
     public void cancelReturnDevice() {
-        provisionId.setText(String.valueOf(provision.getProvisionID()));
-        provisionDeviceId.setText(provision.getDeviceID());
-        provisionDeviceName.setText(provision.getDeviceName());
-        provisionClientId.setText(String.valueOf(provision.getClientID()));
-        provisionClientName.setText(provision.getClientName());
-        provisionAmount.setText(String.valueOf(provision.getAmount()));
-        provisionStatus.setText("Waiting");
         provisionDetailPopup.setVisible(true);
         returnWindow.setVisible(false);
     }
     @FXML
-    public void confirmReturnDevice() {
+    public void confirmReturnDevice() throws SQLException {
+        provision.setBroken(Integer.parseInt(brokenDevice.getText()));
+        provision.setDescription(description.getText());
+        provisionDB.delete(provision);
+        provisions.remove(provision);
         returnWindow.setVisible(false);
         closeProvisionDetailPopup();
     }
