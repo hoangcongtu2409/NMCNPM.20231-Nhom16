@@ -154,6 +154,8 @@ public class ManageUIController implements Initializable {
         provisionClientId.setText(String.valueOf(provision.getClientID()));
         provisionClientName.setText(provision.getClientName());
         provisionAmount.setText(String.valueOf(provision.getAmount()));
+        provisionBorrowTime.setText("Course " + provision.getBorrowCourse() + " " + provision.getBorrowDate());
+        provisionReturnTime.setText("Course " + provision.getReturnCourse() + " " + provision.getReturnDate());
         provisionStatus.setText("Waiting");
         provisionDetailPopup.setVisible(true);
         provisionTablePopup.setVisible(false);
