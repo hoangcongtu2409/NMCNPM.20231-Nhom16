@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
@@ -41,8 +42,8 @@ public class ManageUIController implements Initializable {
     public Text provisionStatus;
     public Button cancelButton;
     public Button returnButton;
+    public AnchorPane mainWindow;
     public AnchorPane provisionDetailPopup;
-    public AnchorPane provisionTablePopup;
     public AnchorPane addProvisionPopup;
     public Button cancelAddButton;
     public Button openAddProvisionPopupBtn;
@@ -111,10 +112,6 @@ public class ManageUIController implements Initializable {
 
 
         addEditButton();
-        provisionTablePopup.setVisible(true);
-        provisionTable.setVisible(true);
-        provisionDetailPopup.setVisible(false);
-        addProvisionPopup.setVisible(false);
     }
 
     private void addEditButton() {
@@ -156,9 +153,14 @@ public class ManageUIController implements Initializable {
         provisionAmount.setText(String.valueOf(provision.getAmount()));
         provisionBorrowTime.setText("Course " + provision.getBorrowCourse() + " " + provision.getBorrowDate());
         provisionReturnTime.setText("Course " + provision.getReturnCourse() + " " + provision.getReturnDate());
-        provisionStatus.setText("Waiting");
+        if (LocalDate.now().isAfter(provision.getReturnDate().toLocalDate()))
+            provisionStatus.setText("Late");
+        else
+            provisionStatus.setText("Waiting");
         provisionDetailPopup.setVisible(true);
-        provisionTablePopup.setVisible(false);
+        mainWindow.setDisable(true);
+        BoxBlur blur = new BoxBlur(5, 5, 3);
+        mainWindow.setEffect(blur);
     }
 
     @FXML
@@ -182,14 +184,16 @@ public class ManageUIController implements Initializable {
         App.setRoot("profileUI");
     }
 
-    public void closeProvisionDetailPopup(ActionEvent actionEvent) {
+    public void closeProvisionDetailPopup() {
         provisionDetailPopup.setVisible(false);
-        provisionTablePopup.setVisible(true);
+        mainWindow.setDisable(false);
+        mainWindow.setEffect(null);
     }
 
-    public void closeMakeProvisionPopup(ActionEvent actionEvent) {
+    public void closeMakeProvisionPopup() {
         addProvisionPopup.setVisible(false);
-        provisionTablePopup.setVisible(true);
+        mainWindow.setDisable(false);
+        mainWindow.setEffect(null);
     }
 
     public void openAddProvisionPopup(ActionEvent actionEvent) {
@@ -218,7 +222,9 @@ public class ManageUIController implements Initializable {
         inputAmount.setText(null);
 
         addProvisionPopup.setVisible(true);
-        provisionTablePopup.setVisible(false);
+        mainWindow.setDisable(true);
+        BoxBlur blur = new BoxBlur(5, 5, 3);
+        mainWindow.setEffect(blur);
         returnWindow.setVisible(false);
         provisionDetailPopup.setVisible(false);
     }
@@ -242,8 +248,7 @@ public class ManageUIController implements Initializable {
         provision.setProvisionID(provisionDB.getLatestID());
         provisions.add(provision);
 
-        provisionTablePopup.setVisible(true);
-        addProvisionPopup.setVisible(false);
+        closeMakeProvisionPopup();
     }
 
     @FXML
@@ -266,12 +271,11 @@ public class ManageUIController implements Initializable {
         provisionStatus.setText("Waiting");
         provisionDetailPopup.setVisible(true);
         returnWindow.setVisible(false);
-        provisionTablePopup.setVisible(false);
     }
     @FXML
     public void confirmReturnDevice() {
         returnWindow.setVisible(false);
-        provisionTablePopup.setVisible(true);
+        closeProvisionDetailPopup();
     }
 }
 

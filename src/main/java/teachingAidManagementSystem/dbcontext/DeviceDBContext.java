@@ -67,9 +67,4 @@ public class DeviceDBContext extends BaseDBContext<DeviceModel> {
     public void delete(int id) {
 
     }
-
-    public static void main(String[] args) {
-        DeviceDBContext deviceDB = new DeviceDBContext();
-        System.out.println(deviceDB.list().size());
-    }
 }

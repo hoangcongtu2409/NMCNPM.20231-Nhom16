@@ -67,11 +67,4 @@ public class ClientDBContext extends BaseDBContext<ClientModel> {
     public void delete(int id) {
 
     }
-
-    public static void main(String[] args) {
-        ClientDBContext clientDB = new ClientDBContext();
-        ArrayList<ClientModel> clients = clientDB.list();
-        for(ClientModel c : clients)
-            System.out.println(c.getId());
-    }
 }
