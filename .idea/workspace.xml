@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1be5db-867d-4818-80e8-090f13f65645" name="Changes" comment="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/constant/IDatabaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/constant/IDatabaseConfig.java" afterDir="false" />
