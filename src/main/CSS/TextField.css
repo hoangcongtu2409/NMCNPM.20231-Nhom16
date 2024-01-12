@@ -1,6 +1,14 @@
 .text-input {
     -fx-text-fill: white;
     -fx-background-color: #202020;
+    -fx-border-color: #767676;
+    -fx-border-radius: 8;
+}
+
+.text-area .content {
+    -fx-text-fill: white;
+    -fx-background-color: #202020;
+    -fx-border-radius: 8;
 }
 
 .combo-box-base{

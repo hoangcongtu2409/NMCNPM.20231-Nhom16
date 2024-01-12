@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aa1be5db-867d-4818-80e8-090f13f65645" name="Changes" comment="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/devicesUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/devicesUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/CSS/TextField.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CSS/TextField.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/manageUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/manageUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +47,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Java/javafx-sdk-21.0.1/lib",
+    "last_opened_file_path": "D:/JavaProjects/target",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -60,8 +61,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Code\NMCNPM.20231-Nhom16\target\CSS" />
       <recent name="D:\JavaProjects\target" />
+      <recent name="D:\Code\NMCNPM.20231-Nhom16\target\CSS" />
       <recent name="D:\JavaProjects\src\main\CSS" />
       <recent name="D:\JavaProjects\target\CSS" />
       <recent name="C:\Users\hoang\NMCNPM.20231-Nhom16\target\CSS" />
@@ -252,7 +253,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705047433945</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
+      <option name="closed" value="true" />
+      <created>1705047732230</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1705047732230</updated>
+    </task>
+    <task id="LOCAL-00020" summary="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
+      <option name="closed" value="true" />
+      <created>1705047840941</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1705047840941</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

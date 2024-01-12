@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -17,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.ManageUIController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.ManageUIController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -214,64 +215,67 @@
                               <Font size="33.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" layoutX="472.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Device" wrappingWidth="188.0">
+                        <Text fill="WHITE" layoutX="472.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Device" wrappingWidth="188.0" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="110.0">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" layoutX="103.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client" wrappingWidth="188.0">
+                        <Text fill="WHITE" layoutX="103.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client" wrappingWidth="188.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="110.0">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" layoutX="104.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Course" wrappingWidth="199.99999999999997">
+                        <Text fill="WHITE" layoutX="104.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Course" wrappingWidth="199.99999999999997" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="190.0">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" layoutX="103.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Course" wrappingWidth="187.99999999999994">
+                        <Text fill="WHITE" layoutX="103.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Course" wrappingWidth="187.99999999999994" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="270.0">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" layoutX="103.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="209.99999999999977">
+                        <Text fill="WHITE" layoutX="103.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" wrappingWidth="209.99999999999977" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="350.0">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Text>
-                        <Button fx:id="cancelAddButton" cancelButton="true" layoutX="200.0" layoutY="520.0" mnemonicParsing="false" onAction="#closeMakeProvisionPopup" prefHeight="53.0" prefWidth="210.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Cancel" textFill="WHITE" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="450.0">
+                        <Button fx:id="cancelAddButton" cancelButton="true" layoutX="200.0" layoutY="520.0" mnemonicParsing="false" onAction="#closeMakeProvisionPopup" prefHeight="53.0" prefWidth="210.0" style="-fx-background-radius: 10;" stylesheets="@../../CSS/RedButton.css" text="Cancel" textFill="WHITE" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="450.0">
                            <font>
                               <Font size="21.0" />
                            </font>
                         </Button>
-                        <Button fx:id="addButton" layoutX="200.0" layoutY="520.0" mnemonicParsing="false" onAction="#addNewProvision" prefHeight="53.0" prefWidth="239.0" style="-fx-background-color: #767676; -fx-background-radius: 10;" text="Make New Provision" textFill="WHITE" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="150.0">
+                        <Button fx:id="addButton" layoutX="200.0" layoutY="520.0" mnemonicParsing="false" onAction="#addNewProvision" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 10;" stylesheets="@../../CSS/ButtonGreen.css" text="Make New Provision" textFill="WHITE" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="150.0">
                            <font>
                               <Font size="21.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="inputBorrowCourse" layoutX="103.0" layoutY="225.0" />
-                        <TextField fx:id="inputReturnCourse" layoutX="103.0" layoutY="304.0" />
-                        <TextField fx:id="inputAmount" layoutX="103.0" layoutY="385.0" />
-                        <ComboBox fx:id="deviceComboBox" layoutX="472.0" layoutY="151.0" prefHeight="26.0" prefWidth="200.0" />
-                        <ComboBox fx:id="clientComboBox" layoutX="104.0" layoutY="151.0" prefHeight="26.0" prefWidth="200.0" />
-                        <TextField fx:id="inputReturnDate" layoutX="472.0" layoutY="304.0" />
-                        <TextField fx:id="inputBorrowDate" layoutX="472.0" layoutY="225.0" />
-                        <Text fill="WHITE" layoutX="472.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Date" wrappingWidth="199.99999999999997">
+                        <TextField fx:id="inputBorrowCourse" layoutX="103.0" layoutY="225.0" stylesheets="@../../CSS/TextField.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="230.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets></TextField>
+                        <TextField fx:id="inputReturnCourse" layoutX="103.0" layoutY="304.0" stylesheets="@../../CSS/TextField.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="310.0" />
+                        <TextField fx:id="inputAmount" layoutX="103.0" layoutY="385.0" stylesheets="@../../CSS/TextField.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="390.0" />
+                        <ComboBox fx:id="deviceComboBox" layoutX="472.0" layoutY="151.0" prefHeight="26.0" prefWidth="200.0" stylesheets="@../../CSS/TextField.css" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="150.0" />
+                        <ComboBox fx:id="clientComboBox" layoutX="104.0" layoutY="151.0" prefHeight="26.0" prefWidth="200.0" stylesheets="@../../CSS/TextField.css" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="150.0" />
+                        <TextField fx:id="inputReturnDate" layoutX="472.0" layoutY="304.0" stylesheets="@../../CSS/TextField.css" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="310.0" />
+                        <TextField fx:id="inputBorrowDate" layoutX="472.0" layoutY="225.0" stylesheets="@../../CSS/TextField.css" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="230.0" />
+                        <Text fill="WHITE" layoutX="472.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Borrow Date" wrappingWidth="199.99999999999997" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="190.0">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Text>
-                        <Text fill="#767676" layoutX="606.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Borrow date will be changed to today)">
+                        <Text fill="#767676" layoutX="606.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Borrow date will be changed to today)" AnchorPane.leftAnchor="590.0" AnchorPane.topAnchor="200.0">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" layoutX="472.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date" wrappingWidth="199.99999999999997">
+                        <Text fill="WHITE" layoutX="472.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date" wrappingWidth="199.99999999999997" AnchorPane.leftAnchor="450.0" AnchorPane.topAnchor="270.0">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Text>
-                        <Text fill="#767676" layoutX="606.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Return date will be changed to today)">
+                        <Text fill="#767676" layoutX="606.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(Return date will be changed to today)" AnchorPane.leftAnchor="590.0" AnchorPane.topAnchor="280.0">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -295,17 +299,17 @@
                               <Font size="24.0" />
                            </font>
                         </Text>
-                        <Button fx:id="cancelReturnButton" cancelButton="true" layoutX="227.0" layoutY="485.0" mnemonicParsing="false" onAction="#cancelReturnDevice" prefHeight="53.0" prefWidth="210.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Cancel" textFill="WHITE">
+                        <Button fx:id="cancelReturnButton" cancelButton="true" layoutX="227.0" layoutY="485.0" mnemonicParsing="false" onAction="#cancelReturnDevice" prefHeight="53.0" prefWidth="210.0" style="-fx-background-radius: 10;" stylesheets="@../../CSS/RedButton.css" text="Cancel" textFill="WHITE" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="500.0">
                            <font>
                               <Font size="21.0" />
                            </font>
                         </Button>
-                        <Button fx:id="confirmReturnButton" layoutX="486.0" layoutY="485.0" mnemonicParsing="false" onAction="#confirmReturnDevice" prefHeight="53.0" prefWidth="239.0" style="-fx-background-color: #767676; -fx-background-radius: 10;" text="Confirm Return" textFill="WHITE">
+                        <Button fx:id="confirmReturnButton" layoutX="486.0" layoutY="485.0" mnemonicParsing="false" onAction="#confirmReturnDevice" prefHeight="53.0" prefWidth="239.0" style="-fx-background-radius: 10;" stylesheets="@../../CSS/ButtonGreen.css" text="Confirm Return" textFill="WHITE" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="150.0">
                            <font>
                               <Font size="21.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="brokenDevice" layoutX="103.0" layoutY="153.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="209.0" />
+                        <TextField fx:id="brokenDevice" layoutX="103.0" layoutY="153.0" stylesheets="@../../CSS/TextField.css" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="209.0" />
                         <Label fx:id="provisionId1" layoutX="54.0" layoutY="62.0" text="Label" AnchorPane.leftAnchor="105.0" AnchorPane.topAnchor="105.0">
                            <font>
                               <Font size="16.0" />
@@ -348,7 +352,7 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="description" layoutX="215.0" layoutY="285.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="163.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="345.0" />
+                        <TextArea fx:id="description" layoutX="215.0" layoutY="285.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../../CSS/TextField.css" AnchorPane.bottomAnchor="163.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="345.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="mainWindow" prefHeight="800.0" prefWidth="1080.0" style="-fx-background-color: #202020; -fx-view-order: 1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -358,7 +362,7 @@
                               <Font size="33.0" />
                            </font>
                         </Text>
-                        <Button fx:id="openAddProvisionPopupBtn" layoutX="251.0" layoutY="30.0" mnemonicParsing="false" onAction="#openAddProvisionPopup" prefHeight="53.0" prefWidth="210.0" style="-fx-background-color: #767676; -fx-background-radius: 10;" text="Make Provision" textFill="WHITE">
+                        <Button fx:id="openAddProvisionPopupBtn" layoutX="251.0" layoutY="30.0" mnemonicParsing="false" onAction="#openAddProvisionPopup" prefHeight="53.0" prefWidth="210.0" style="-fx-background-radius: 10;" stylesheets="@../../CSS/ButtonGreen.css" text="Make Provision" textFill="WHITE">
                            <font>
                               <Font size="21.0" />
                            </font>
