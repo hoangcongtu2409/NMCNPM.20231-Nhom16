@@ -1,11 +1,17 @@
 package teachingAidManagementSystem.model;
 
+import teachingAidManagementSystem.dbcontext.ClientDBContext;
+import teachingAidManagementSystem.dbcontext.DeviceDBContext;
+
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Provision extends BaseModel {
     private int provisionID;
     private int clientID;
+    private String clientName;
     private String deviceID;
+    private String deviceName;
     private int borrowCourse;
     private Date borrowDate;
     private int returnCourse;
@@ -46,12 +52,38 @@ public class Provision extends BaseModel {
         this.clientID = clientID;
     }
 
+    public String getClientName() {
+        ClientDBContext clientDB = new ClientDBContext();
+        ArrayList<ClientModel> clients = clientDB.list();
+        for(ClientModel c : clients)
+            if(c.getId() == clientID)
+                clientName = c.getName();
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
+    }
+
     public String getDeviceID() {
         return deviceID;
     }
 
     public void setDeviceID(String deviceID) {
         this.deviceID = deviceID;
+    }
+
+    public String getDeviceName() {
+        DeviceDBContext deviceDB = new DeviceDBContext();
+        ArrayList<DeviceModel> devices = deviceDB.list();
+        for(DeviceModel d : devices)
+            if(d.getId().equals(deviceID))
+                deviceName = d.getName();
+        return deviceName;
+    }
+
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
     }
 
     public int getBorrowCourse() {

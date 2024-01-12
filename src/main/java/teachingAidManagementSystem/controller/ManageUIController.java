@@ -48,11 +48,13 @@ public class ManageUIController implements Initializable {
     public Button openAddProvisionPopupBtn;
     public Button addNewProvisionButton;
     public TextField inputBorrowCourse;
+    public TextField inputBorrowDate;
     public TextField inputReturnCourse;
+    public TextField inputReturnDate;
     public TextField inputAmount;
     public ComboBox deviceComboBox;
     public ComboBox clientComboBox;
-    private ObservableList<Integer> clientModels;
+    private ObservableList<String> clientModels;
     private ObservableList<String> deviceModels;
 
     @FXML
@@ -91,12 +93,7 @@ public class ManageUIController implements Initializable {
         clientDB = new ClientDBContext();
 
         provisions = FXCollections.observableArrayList();
-        provision = new Provision();
-        provision.setProvisionID(1);
-        provision.setClientID(1);
-        provision.setDeviceID("B003");
-        provision.setAmount(1);
-        provisions.add(provision);
+
         provisions.addAll(provisionDB.list());
         provisionTable.setItems(provisions);
 
@@ -129,6 +126,7 @@ public class ManageUIController implements Initializable {
                                 }
                             });
                             setGraphic(btn);
+                            setAlignment(javafx.geometry.Pos.CENTER);
                         }
                     }
                 };
@@ -140,19 +138,9 @@ public class ManageUIController implements Initializable {
     private void showDetailPopup() {
         provisionId.setText(String.valueOf(provision.getProvisionID()));
         provisionDeviceId.setText(provision.getDeviceID());
-        ArrayList<DeviceModel> devices = deviceDB.list();
-        String deviceName = "deviceName";
-        for(DeviceModel d : devices)
-            if(d.getId().equals(provision.getDeviceID()))
-                deviceName = d.getName();
-        provisionDeviceName.setText(deviceName);
+        provisionDeviceName.setText(provision.getDeviceName());
         provisionClientId.setText(String.valueOf(provision.getClientID()));
-        ArrayList<ClientModel> clients = clientDB.list();
-        String clientName = "clientName";
-        for(ClientModel c : clients)
-            if(c.getId() == provision.getClientID())
-                clientName = c.getName();
-        provisionClientName.setText(clientName);
+        provisionClientName.setText(provision.getClientName());
         provisionAmount.setText(String.valueOf(provision.getAmount()));
         provisionStatus.setText("Waiting");
         provisionDetailPopup.setVisible(true);
@@ -193,21 +181,26 @@ public class ManageUIController implements Initializable {
     public void openAddProvisionPopup(ActionEvent actionEvent) {
         clientModels = FXCollections.observableArrayList();
         ArrayList<ClientModel> clients = clientDB.list();
-        ArrayList<Integer> clientsID = new ArrayList<>();
+        ArrayList<String> clientsName = new ArrayList<>();
         for(ClientModel c : clients)
-            clientsID.add(c.getId());
-        clientModels.addAll(clientsID);
+            clientsName.add(c.getName());
+        clientModels.addAll(clientsName);
         clientComboBox.setValue("Clients");
         clientComboBox.setItems(clientModels);
 
         deviceModels = FXCollections.observableArrayList();
-        ArrayList<String> devicesID = new ArrayList<>();
+        ArrayList<String> devicesName = new ArrayList<>();
         ArrayList<DeviceModel> devices = deviceDB.list();
         for(DeviceModel d : devices)
-            devicesID.add(d.getId());
-        deviceModels.addAll(devicesID);
+            devicesName.add(d.getName());
+        deviceModels.addAll(devicesName);
         deviceComboBox.setValue("Devices");
         deviceComboBox.setItems(deviceModels);
+
+        inputBorrowCourse.setText(null);
+        inputBorrowDate.setText(String.valueOf(LocalDate.now()));
+        inputReturnCourse.setText(null);
+        inputReturnDate.setText(String.valueOf(LocalDate.now()));
 
         addProvisionPopup.setVisible(true);
         provisionTablePopup.setVisible(false);
@@ -216,16 +209,23 @@ public class ManageUIController implements Initializable {
 
     public void addNewProvision(ActionEvent actionEvent) {
         provision = new Provision();
-        provision.setProvisionID(2);
-        provision.setClientID(1);
-        provision.setDeviceID("IphoneX");
-        provision.setBorrowCourse(1);
-        provision.setBorrowDate(java.sql.Date.valueOf(LocalDate.now()));
-        provision.setReturnCourse(2);
-        provision.setReturnDate(java.sql.Date.valueOf(LocalDate.now()));
-        provision.setAmount(2);
+        ArrayList<ClientModel> clients = clientDB.list();
+        for(ClientModel c : clients)
+            if(c.getName().equals(clientComboBox.getValue()))
+                provision.setClientID(c.getId());
+        ArrayList<DeviceModel> devices = deviceDB.list();
+        for(DeviceModel d : devices)
+            if(d.getName().equals(deviceComboBox.getValue()))
+                provision.setDeviceID(d.getId());;
+        provision.setBorrowCourse(Integer.parseInt(inputBorrowCourse.getText()));
+        provision.setBorrowDate(java.sql.Date.valueOf(inputBorrowDate.getText()));
+        provision.setReturnCourse(Integer.parseInt(inputReturnCourse.getText()));
+        provision.setReturnDate(java.sql.Date.valueOf(inputReturnDate.getText()));
+        provision.setAmount(Integer.parseInt(inputAmount.getText()));
+        provisionDB.insert(provision);
+        provision.setProvisionID(provisionDB.getLatestID());
         provisions.add(provision);
-        provisionTable.setItems(provisions);
+
         provisionTablePopup.setVisible(true);
         addProvisionPopup.setVisible(false);
     }

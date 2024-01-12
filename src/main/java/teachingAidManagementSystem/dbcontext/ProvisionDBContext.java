@@ -69,35 +69,46 @@ public class ProvisionDBContext extends BaseDBContext<Provision> {
         return null;
     }
 
+    public int getLatestID() {
+        int provisionID = 0;
+        try {
+            PreparedStatement ps = connection.prepareStatement(
+                    "select top 1 ProvisionID from Provision order by ProvisionID DESC"
+            );
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("ProvisionID");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProvisionDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return provisionID;
+    }
+
     @Override
     public Provision insert(Provision provision) {
         PreparedStatement statement = null;
         try {
             String sql = "INSERT INTO [Provision]\n"
-                    + "           ([ProvisionID]\n"
-                    + "           ,[ClientID]\n"
+                    + "           ([ClientID]\n"
                     + "           ,[DeviceID]\n"
-                    + "           ,[borrowCourse]\n"
-                    + "           ,[borrowDate]\n"
-                    + "           ,[returnCourse]\n"
-                    + "           ,[returnDate]\n"
-                    + "           ,[amount])\n"
-                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+                    + "           ,[BorrowCourse]\n"
+                    + "           ,[BorrowDate]\n"
+                    + "           ,[ReturnCourse]\n"
+                    + "           ,[ReturnDate]\n"
+                    + "           ,[Amount])\n"
+                    + "VALUES(?, ?, ?, ?, ?, ?, ?)";
             statement = connection.prepareStatement(sql, statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, provision.getProvisionID());
-            statement.setInt(2, provision.getClientID());
-            statement.setString(3, provision.getDeviceID());
-            statement.setInt(4, provision.getBorrowCourse());
-            statement.setDate(5, provision.getBorrowDate());
-            statement.setInt(6, provision.getReturnCourse());
-            statement.setDate(7, provision.getReturnDate());
-            statement.setInt(8, provision.getAmount());
+            statement.setInt(1, provision.getClientID());
+            statement.setString(2, provision.getDeviceID());
+            statement.setInt(3, provision.getBorrowCourse());
+            statement.setDate(4, provision.getBorrowDate());
+            statement.setInt(5, provision.getReturnCourse());
+            statement.setDate(6, provision.getReturnDate());
+            statement.setInt(7, provision.getAmount());
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
             if (rs.next()) {
-                int id = rs.getInt(1);
-                provision.setProvisionID(id);
-                System.out.println("added provision-id: " + provision.getProvisionID());
                 return provision;
             }
         } catch (SQLException ex) {
@@ -106,13 +117,6 @@ public class ProvisionDBContext extends BaseDBContext<Provision> {
             if (statement != null) {
                 try {
                     statement.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(ProvisionDBContext.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
                 } catch (SQLException ex) {
                     Logger.getLogger(ProvisionDBContext.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -130,11 +134,5 @@ public class ProvisionDBContext extends BaseDBContext<Provision> {
     @Override
     public void delete(int id) {
 
-    }
-
-    public static void main(String[] args) {
-        ProvisionDBContext provisionDBContext = new ProvisionDBContext();
-        ArrayList<Provision> provisions = provisionDBContext.list();
-        System.out.println(provisions.size());
     }
 }
