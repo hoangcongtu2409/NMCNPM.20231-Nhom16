@@ -1,6 +1,7 @@
 package teachingAidManagementSystem.dbcontext;
 
 import teachingAidManagementSystem.DatabaseConnection;
+import teachingAidManagementSystem.model.DeviceModel;
 import teachingAidManagementSystem.model.Provision;
 
 import java.sql.*;
@@ -106,9 +107,7 @@ public class ProvisionDBContext extends BaseDBContext<Provision> {
             statement.setInt(7, provision.getAmount());
             statement.executeUpdate();
             ResultSet rs = statement.getGeneratedKeys();
-            if (rs.next()) {
-                return provision;
-            }
+            if (rs.next())  return provision;
 
         return null;
     }
@@ -120,12 +119,22 @@ public class ProvisionDBContext extends BaseDBContext<Provision> {
 
     @Override
     public void delete(Provision provision) throws SQLException {
-        DatabaseConnection catConn = new DatabaseConnection();
-        Connection connectDB = catConn.getConnection();
+        // trigger add return device
+        DeviceDBContext deviceDB = new DeviceDBContext();
+        DeviceModel device = deviceDB.get(provision.getDeviceID());
+        device.setBroken(device.getBroken() + provision.getBroken());
+        device.setUsable(device.getUsable() + provision.getAmount() - provision.getBroken());
+        deviceDB.update(device);
 
-        String deleteQuery = "DELETE FROM Provision WHERE ProvisionID = " + provision.getProvisionID();
-
-        Statement statement = connectDB.createStatement();
-        statement.executeUpdate(deleteQuery);
+        try {
+            String sql = "DELETE FROM [Provision]\n"
+                    + "WHERE ProvisionID = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, provision.getProvisionID());
+            statement.executeUpdate();
+            System.out.println("Deleted Provision: " + provision.getProvisionID());
+        } catch (SQLException ex) {
+            Logger.getLogger(ProvisionDBContext.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
