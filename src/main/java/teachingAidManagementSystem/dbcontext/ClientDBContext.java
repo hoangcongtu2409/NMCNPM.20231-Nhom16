@@ -29,9 +29,7 @@ public class ClientDBContext extends BaseDBContext<ClientModel> {
     public ArrayList<ClientModel> list() {
         ArrayList<ClientModel> clients = new ArrayList<>();
         try {
-            PreparedStatement ps = connection.prepareStatement(
-                    "select * from Client"
-            );
+            PreparedStatement ps = connection.prepareStatement("select * from Client");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 clients.add(convert(rs));
@@ -51,17 +49,11 @@ public class ClientDBContext extends BaseDBContext<ClientModel> {
     }
 
     @Override
-    public ClientModel insert(ClientModel model) {
-        return null;
-    }
+    public ClientModel insert(ClientModel client) { return null; }
 
     @Override
-    public void update(ClientModel model) {
-
-    }
+    public void update(ClientModel model) { }
 
     @Override
-    public void delete(ClientModel mode) throws SQLException {
-
-    }
+    public void delete(ClientModel mode) { }
 }

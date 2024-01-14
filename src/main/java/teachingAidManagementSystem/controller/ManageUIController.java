@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.util.Callback;
 import teachingAidManagementSystem.App;
+import teachingAidManagementSystem.classes.Client;
 import teachingAidManagementSystem.classes.Device;
 import teachingAidManagementSystem.dbcontext.ClientDBContext;
 import teachingAidManagementSystem.dbcontext.DeviceDBContext;
@@ -231,13 +232,19 @@ public class ManageUIController implements Initializable {
     public void addNewProvision(ActionEvent actionEvent) {
         provision = new Provision();
         ArrayList<ClientModel> clients = clientDB.list();
+        ClientModel client = new ClientModel();
         for(ClientModel c : clients)
             if(c.getName().equals(clientComboBox.getValue()))
-                provision.setClientID(c.getId());
+                client = c;
         ArrayList<DeviceModel> devices = deviceDB.list();
+        DeviceModel device = new DeviceModel();
         for(DeviceModel d : devices)
             if(d.getName().equals(deviceComboBox.getValue()))
-                provision.setDeviceID(d.getId());;
+                device = d;
+        System.out.println(device.getName());
+        System.out.println(client.getName());
+        provision.setDeviceID(device.getId());
+        provision.setClientID(client.getId());
         provision.setBorrowCourse(Integer.parseInt(inputBorrowCourse.getText()));
         provision.setBorrowDate(java.sql.Date.valueOf(inputBorrowDate.getText()));
         provision.setReturnCourse(Integer.parseInt(inputReturnCourse.getText()));
@@ -245,6 +252,12 @@ public class ManageUIController implements Initializable {
         provision.setAmount(Integer.parseInt(inputAmount.getText()));
 
         try {
+            if(device.getUsable() >= provision.getAmount()) {
+                deviceDB = new DeviceDBContext();
+                device.setUsable(device.getUsable() - provision.getAmount());
+                deviceDB.update(device);
+            }
+
             provisionDB.insert(provision);
             provision.setProvisionID(provisionDB.getLatestID());
             provisions.add(provision);
@@ -274,11 +287,13 @@ public class ManageUIController implements Initializable {
         brokenDevice.setText(null);
         description.setText(null);
     }
+
     @FXML
     public void cancelReturnDevice() {
         provisionDetailPopup.setVisible(true);
         returnWindow.setVisible(false);
     }
+
     @FXML
     public void confirmReturnDevice() throws SQLException {
         provision.setBroken(Integer.parseInt(brokenDevice.getText()));
