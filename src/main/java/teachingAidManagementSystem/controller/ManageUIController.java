@@ -230,34 +230,25 @@ public class ManageUIController implements Initializable {
     }
 
     public void addNewProvision(ActionEvent actionEvent) {
-        provision = new Provision();
-        ArrayList<ClientModel> clients = clientDB.list();
-        ClientModel client = new ClientModel();
-        for(ClientModel c : clients)
-            if(c.getName().equals(clientComboBox.getValue()))
-                client = c;
-        ArrayList<DeviceModel> devices = deviceDB.list();
-        DeviceModel device = new DeviceModel();
-        for(DeviceModel d : devices)
-            if(d.getName().equals(deviceComboBox.getValue()))
-                device = d;
-        System.out.println(device.getName());
-        System.out.println(client.getName());
-        provision.setDeviceID(device.getId());
-        provision.setClientID(client.getId());
-        provision.setBorrowCourse(Integer.parseInt(inputBorrowCourse.getText()));
-        provision.setBorrowDate(java.sql.Date.valueOf(inputBorrowDate.getText()));
-        provision.setReturnCourse(Integer.parseInt(inputReturnCourse.getText()));
-        provision.setReturnDate(java.sql.Date.valueOf(inputReturnDate.getText()));
-        provision.setAmount(Integer.parseInt(inputAmount.getText()));
-
         try {
-            if(device.getUsable() >= provision.getAmount()) {
-                deviceDB = new DeviceDBContext();
-                device.setUsable(device.getUsable() - provision.getAmount());
-                deviceDB.update(device);
-            }
-
+            provision = new Provision();
+            ArrayList<ClientModel> clients = clientDB.list();
+            ClientModel client = new ClientModel();
+            for(ClientModel c : clients)
+                if(c.getName().equals(clientComboBox.getValue()))
+                    client = c;
+            ArrayList<DeviceModel> devices = deviceDB.list();
+            DeviceModel device = new DeviceModel();
+            for(DeviceModel d : devices)
+                if(d.getName().equals(deviceComboBox.getValue()))
+                    device = d;
+            provision.setDeviceID(device.getId());
+            provision.setClientID(client.getId());
+            provision.setBorrowCourse(Integer.parseInt(inputBorrowCourse.getText()));
+            provision.setBorrowDate(java.sql.Date.valueOf(inputBorrowDate.getText()));
+            provision.setReturnCourse(Integer.parseInt(inputReturnCourse.getText()));
+            provision.setReturnDate(java.sql.Date.valueOf(inputReturnDate.getText()));
+            provision.setAmount(Integer.parseInt(inputAmount.getText()));
             provisionDB.insert(provision);
             provision.setProvisionID(provisionDB.getLatestID());
             provisions.add(provision);

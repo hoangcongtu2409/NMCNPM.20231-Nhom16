@@ -132,7 +132,6 @@ public class ProvisionDBContext extends BaseDBContext<Provision> {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, provision.getProvisionID());
             statement.executeUpdate();
-            System.out.println("Deleted Provision: " + provision.getProvisionID());
         } catch (SQLException ex) {
             Logger.getLogger(ProvisionDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }

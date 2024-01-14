@@ -91,22 +91,7 @@ public class DeviceDBContext extends BaseDBContext<DeviceModel> {
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(DeviceDBContext.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            if (statement != null) {
-                try {
-                    statement.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(DeviceDBContext.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(DeviceDBContext.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
+        } 
     }
 
     @Override
