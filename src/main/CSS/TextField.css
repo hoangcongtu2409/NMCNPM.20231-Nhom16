@@ -17,3 +17,21 @@
     -fx-border-color: #767676;
     -fx-border-radius: 8;
 }
+
+.combo-box .list-cell {
+  -fx-text-fill: white;
+}
+
+.combo-box .list-view .list-cell {
+  -fx-text-fill: black;
+}
+
+.combo-box .list-view .list-cell:focused {
+  -fx-background-color : #202020;
+  -fx-text-fill: white;
+}
+
+.combo-box .list-view .list-cell:hover {
+  -fx-background-color : #202020;
+  -fx-text-fill: white;
+}
