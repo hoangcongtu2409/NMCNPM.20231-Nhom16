@@ -20,6 +20,8 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
+import static teachingAidManagementSystem.controller.LoginUIController.admin;
+
 public class DevicesUIController implements Initializable {
     @FXML
     private AnchorPane mainWindow;
@@ -96,6 +98,12 @@ public class DevicesUIController implements Initializable {
     @FXML
     public void switchToProfile() throws IOException {
         App.setRoot("profileUI");
+    }
+
+    @FXML
+    public void logout() throws IOException {
+        admin = null;
+        App.setRoot("loginUI");
     }
 
     @Override

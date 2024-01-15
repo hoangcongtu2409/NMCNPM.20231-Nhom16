@@ -15,6 +15,8 @@ import java.sql.Connection;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import static teachingAidManagementSystem.controller.LoginUIController.admin;
+
 public class ProfileUIController implements Initializable {
     @FXML
     private TextField nameTextField;
@@ -46,6 +48,12 @@ public class ProfileUIController implements Initializable {
     @FXML
     public void switchToProfile() throws IOException {
         App.setRoot("profileUI");
+    }
+
+    @FXML
+    public void logout() throws IOException {
+        admin = null;
+        App.setRoot("loginUI");
     }
 
     @Override

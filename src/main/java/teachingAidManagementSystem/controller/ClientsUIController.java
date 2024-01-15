@@ -25,6 +25,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+import static teachingAidManagementSystem.controller.LoginUIController.admin;
+
 public class ClientsUIController implements Initializable {
     @FXML
     private AnchorPane mainWindow;
@@ -72,6 +74,12 @@ public class ClientsUIController implements Initializable {
     @FXML
     public void switchToProfile() throws IOException {
         App.setRoot("profileUI");
+    }
+
+    @FXML
+    public void logout() throws IOException {
+        admin = null;
+        App.setRoot("loginUI");
     }
 
     @Override

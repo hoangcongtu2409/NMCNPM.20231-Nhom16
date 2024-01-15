@@ -35,3 +35,22 @@
   -fx-background-color : #202020;
   -fx-text-fill: white;
 }
+.combo-box-base:focused {
+    -fx-background-color: #303030; /* Màu nền khi ComboBox được chọn */
+    -fx-text-fill: #ffffff; /* Màu chữ khi ComboBox được chọn */
+    -fx-border-color: #ffffff; /* Màu viền khi ComboBox được chọn */
+}
+.combo-box-popup .list-view {
+    -fx-background-color: #303030; /* Màu nền danh sách lựa chọn */
+    -fx-text-fill: white; /* Màu chữ trong danh sách lựa chọn */
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-color: #303030; /* Màu nền của mỗi lựa chọn */
+    -fx-text-fill: white; /* Màu chữ của mỗi lựa chọn */
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #404040; /* Màu nền của lựa chọn khi được chọn */
+    -fx-text-fill: #ffffff; /* Màu chữ của lựa chọn khi được chọn */
+}

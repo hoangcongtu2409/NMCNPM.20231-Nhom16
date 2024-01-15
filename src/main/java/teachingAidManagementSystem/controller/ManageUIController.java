@@ -31,6 +31,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
 
+import static teachingAidManagementSystem.controller.LoginUIController.admin;
+
 public class ManageUIController implements Initializable {
 
     public Text provisionId;
@@ -182,6 +184,12 @@ public class ManageUIController implements Initializable {
     @FXML
     public void switchToProfile() throws IOException {
         App.setRoot("profileUI");
+    }
+
+    @FXML
+    public void logout() throws IOException {
+        admin = null;
+        App.setRoot("loginUI");
     }
 
     public void closeProvisionDetailPopup() {

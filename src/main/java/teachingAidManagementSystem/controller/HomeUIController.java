@@ -35,6 +35,11 @@ public class HomeUIController implements Initializable {
         App.setRoot("profileUI");
     }
 
+    @FXML
+    public void logout() throws IOException {
+        admin = null;
+        App.setRoot("loginUI");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

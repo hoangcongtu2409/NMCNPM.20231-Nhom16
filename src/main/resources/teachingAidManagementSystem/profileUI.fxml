@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.ProfileUIController">
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="teachingAidManagementSystem.controller.ProfileUIController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -51,7 +51,7 @@
                               <Font size="20.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" layoutX="49.4" layoutY="749.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" AnchorPane.leftAnchor="49.4">
+                        <Text fill="WHITE" layoutX="49.4" layoutY="749.0" onMouseClicked="#logout" strokeType="OUTSIDE" strokeWidth="0.0" text="Log out" AnchorPane.leftAnchor="49.4">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -102,11 +102,11 @@
                         <AnchorPane layoutX="265.0" layoutY="161.0" prefHeight="230.0" prefWidth="546.0" style="-fx-background-color: #000000; -fx-background-radius: 10px;">
                            <children>
                               <Circle fill="DODGERBLUE" layoutX="274.0" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
-                              <TextField fx:id="nameTextField" alignment="CENTER" editable="false" layoutX="199.0" layoutY="119.0" style="-fx-background-color: black;" stylesheets="@../../CSS/TextField.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="126.0">
+                              <TextField fx:id="nameTextField" alignment="CENTER" editable="false" layoutX="199.0" layoutY="119.0" style="-fx-background-color: black;" stylesheets="@../../CSS/TextField1.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="126.0">
                                  <font>
                                     <Font name="System Bold" size="24.0" />
                                  </font></TextField>
-                              <TextField fx:id="emailTextField" alignment="CENTER" editable="false" style="-fx-background-color: black;" stylesheets="@../../CSS/TextField.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="177.0">
+                              <TextField fx:id="emailTextField" alignment="CENTER" editable="false" style="-fx-background-color: black;" stylesheets="@../../CSS/TextField1.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="177.0">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -122,7 +122,7 @@
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="phoneTextField" alignment="CENTER_RIGHT" editable="false" layoutX="310.0" layoutY="11.0" style="-fx-background-color: black; -fx-view-order: 0;" stylesheets="@../../CSS/TextField.css" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="11.0">
+                              <TextField fx:id="phoneTextField" alignment="CENTER_RIGHT" editable="false" layoutX="310.0" layoutY="11.0" style="-fx-background-color: black; -fx-view-order: 0;" stylesheets="@../../CSS/TextField1.css" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="11.0">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -132,7 +132,7 @@
                                     <Font name="System Bold" size="16.0" />
                                  </font>
                               </Text>
-                              <TextField fx:id="addressTextField" alignment="CENTER_RIGHT" editable="false" layoutX="320.0" layoutY="52.0" maxWidth="1.7976931348623157E308" prefWidth="350.0" style="-fx-background-color: black; -fx-view-order: 0;" stylesheets="@../../CSS/TextField.css" AnchorPane.bottomAnchor="11.200000000000003" AnchorPane.rightAnchor="27.0">
+                              <TextField fx:id="addressTextField" alignment="CENTER_RIGHT" editable="false" layoutX="320.0" layoutY="52.0" maxWidth="1.7976931348623157E308" prefWidth="350.0" style="-fx-background-color: black; -fx-view-order: 0;" stylesheets="@../../CSS/TextField1.css" AnchorPane.bottomAnchor="11.200000000000003" AnchorPane.rightAnchor="27.0">
                                  <font>
                                     <Font size="16.0" />
                                  </font>

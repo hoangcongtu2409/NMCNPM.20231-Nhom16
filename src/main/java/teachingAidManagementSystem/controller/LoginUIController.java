@@ -27,7 +27,7 @@ public class LoginUIController {
     public void switchToHome() throws IOException {
         String username = accField.getText();
         String password = pwField.getText();
-        if (true) {
+        if (isValidLogin(username, password)) {
             App.setRoot("homeUI");
         } else {
             showErrorAlert("Tên đăng nhập hoặc mật khẩu không đúng!");
