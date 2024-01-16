@@ -8,7 +8,7 @@ public class DatabaseConnection{
     public Connection getConnection() {
         String dbName = "DeviceManagement";
         String dbUser = "sa";
-        String dbPassword = "sa";     //Pass này mỗi người tự đặt khác nhau
+        String dbPassword = "25042003";
         String url = "jdbc:sqlserver://localhost" + ";databaseName=" + dbName;
 
         try {
