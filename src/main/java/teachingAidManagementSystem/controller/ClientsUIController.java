@@ -17,6 +17,7 @@ import teachingAidManagementSystem.App;
 import teachingAidManagementSystem.DatabaseConnection;
 import teachingAidManagementSystem.classes.Client;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import teachingAidManagementSystem.classes.Profile;
 
 import java.io.IOException;
 import java.net.URL;
@@ -79,6 +80,7 @@ public class ClientsUIController implements Initializable {
     @FXML
     public void logout() throws IOException {
         admin = null;
+        admin = new Profile();
         App.setRoot("loginUI");
     }
 

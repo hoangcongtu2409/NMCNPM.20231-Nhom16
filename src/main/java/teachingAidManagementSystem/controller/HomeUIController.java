@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import teachingAidManagementSystem.App;
+import teachingAidManagementSystem.classes.Profile;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,6 +39,7 @@ public class HomeUIController implements Initializable {
     @FXML
     public void logout() throws IOException {
         admin = null;
+        admin = new Profile();
         App.setRoot("loginUI");
     }
 

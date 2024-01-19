@@ -14,6 +14,7 @@ import javafx.util.Callback;
 import teachingAidManagementSystem.App;
 import teachingAidManagementSystem.classes.Client;
 import teachingAidManagementSystem.classes.Device;
+import teachingAidManagementSystem.classes.Profile;
 import teachingAidManagementSystem.dbcontext.ClientDBContext;
 import teachingAidManagementSystem.dbcontext.DeviceDBContext;
 import teachingAidManagementSystem.dbcontext.ProvisionDBContext;
@@ -189,6 +190,7 @@ public class ManageUIController implements Initializable {
     @FXML
     public void logout() throws IOException {
         admin = null;
+        admin = new Profile();
         App.setRoot("loginUI");
     }
 

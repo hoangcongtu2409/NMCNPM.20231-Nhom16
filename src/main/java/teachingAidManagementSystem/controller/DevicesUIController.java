@@ -14,6 +14,7 @@ import javafx.util.Callback;
 import teachingAidManagementSystem.App;
 import teachingAidManagementSystem.DatabaseConnection;
 import teachingAidManagementSystem.classes.Device;
+import teachingAidManagementSystem.classes.Profile;
 
 import java.io.IOException;
 import java.net.URL;
@@ -103,6 +104,7 @@ public class DevicesUIController implements Initializable {
     @FXML
     public void logout() throws IOException {
         admin = null;
+        admin = new Profile();
         App.setRoot("loginUI");
     }
 

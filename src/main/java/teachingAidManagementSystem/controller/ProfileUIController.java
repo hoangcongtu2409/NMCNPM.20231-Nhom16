@@ -53,6 +53,7 @@ public class ProfileUIController implements Initializable {
     @FXML
     public void logout() throws IOException {
         admin = null;
+        admin = new Profile();
         App.setRoot("loginUI");
     }
 
