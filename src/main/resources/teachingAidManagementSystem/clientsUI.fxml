@@ -124,7 +124,7 @@
                            <font>
                               <Font size="15.0" />
                            </font></TextField>
-                        <Label layoutX="107.0" layoutY="406.0" text="Address" textFill="WHITE">
+                        <Label layoutX="107.0" layoutY="406.0" text="Department" textFill="WHITE">
                            <font>
                               <Font size="24.0" />
                            </font></Label>
