@@ -103,18 +103,9 @@ public class ProfileUIController implements Initializable {
         }
 
         String mess = "";
-
         textFieldValue = emailTextField.getText().trim();
         if (textFieldValue.isEmpty()) {
             mess = mess + "Thiếu email\n";
-        }
-        textFieldValue = phoneTextField.getText().trim();
-        if (textFieldValue.isEmpty()) {
-            mess = mess + "Thiếu số điện thoại\n";
-        }
-        textFieldValue = addressTextField.getText().trim();
-        if (textFieldValue.isEmpty()) {
-            mess = mess + "Thiếu địa chỉ\n";
         }
         if(!mess.isEmpty()) {
             showErrorAlert(mess);
