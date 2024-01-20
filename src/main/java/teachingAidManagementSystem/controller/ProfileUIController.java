@@ -102,6 +102,24 @@ public class ProfileUIController implements Initializable {
             return;
         }
 
+        String mess = "";
+
+        textFieldValue = emailTextField.getText().trim();
+        if (textFieldValue.isEmpty()) {
+            mess = mess + "Thiếu email\n";
+        }
+        textFieldValue = phoneTextField.getText().trim();
+        if (textFieldValue.isEmpty()) {
+            mess = mess + "Thiếu số điện thoại\n";
+        }
+        textFieldValue = addressTextField.getText().trim();
+        if (textFieldValue.isEmpty()) {
+            mess = mess + "Thiếu địa chỉ\n";
+        }
+        if(!mess.isEmpty()) {
+            showErrorAlert(mess);
+        }
+
         LoginUIController.admin.setName(nameTextField.getText());
         LoginUIController.admin.setEmail(emailTextField.getText());
         LoginUIController.admin.setPhone(phoneTextField.getText());
