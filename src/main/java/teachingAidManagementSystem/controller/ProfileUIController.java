@@ -2,6 +2,7 @@ package teachingAidManagementSystem.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -92,6 +93,25 @@ public class ProfileUIController implements Initializable {
     }
 
     public void saveChanges() {
+        String textFieldValue = nameTextField.getText().trim();
+        if (textFieldValue.isEmpty()) {
+            showErrorAlert("Bạn chưa điền tên cán bộ kỹ thuật");
+            nameTextField.setText(LoginUIController.admin.getName());
+            emailTextField.setText(LoginUIController.admin.getEmail());
+            phoneTextField.setText(LoginUIController.admin.getPhone());
+            addressTextField.setText(LoginUIController.admin.getAddress());
+            return;
+        }
+
+        String mess = "";
+        textFieldValue = emailTextField.getText().trim();
+        if (textFieldValue.isEmpty()) {
+            mess = mess + "Thiếu email\n";
+        }
+        if(!mess.isEmpty()) {
+            showErrorAlert(mess);
+        }
+
         LoginUIController.admin.setName(nameTextField.getText());
         LoginUIController.admin.setEmail(emailTextField.getText());
         LoginUIController.admin.setPhone(phoneTextField.getText());
@@ -114,5 +134,12 @@ public class ProfileUIController implements Initializable {
             e.printStackTrace();
             e.getCause();
         }
+    }
+    private void showErrorAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Thiếu thông tin");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
