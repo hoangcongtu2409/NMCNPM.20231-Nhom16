@@ -143,7 +143,12 @@
                               <FontAwesomeIcon fill="WHITE" glyphName="PENCIL_SQUARE_ALT" layoutX="513.0" layoutY="46.0" size="1.5em" viewOrder="1.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="29.0" />
                            </children>
                         </AnchorPane>
-                        <Button fx:id="btn" layoutX="436.0" layoutY="567.0" mnemonicParsing="false" onAction="#editAndSaveProfile" prefHeight="46.0" prefWidth="207.0" style="-fx-background-radius: 10;" stylesheets="@../../CSS/ButtonGreen.css" text="Edit Profile" textFill="WHITE">
+                        <Button fx:id="editButton" layoutX="436.0" layoutY="567.0" mnemonicParsing="false" onAction="#editProfile" prefHeight="46.0" prefWidth="207.0" style="-fx-background-radius: 10;" stylesheets="@../../CSS/ButtonGreen.css" text="Edit Profile" textFill="WHITE">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="saveButton" layoutX="436.0" layoutY="567.0" mnemonicParsing="false" onAction="#saveChanges" prefHeight="46.0" prefWidth="207.0" style="-fx-background-radius: 10;" stylesheets="@../../CSS/ButtonGreen.css" text="Save" textFill="WHITE" visible="false">
                            <font>
                               <Font size="21.0" />
                            </font>

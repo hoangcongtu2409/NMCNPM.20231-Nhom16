@@ -98,17 +98,4 @@ public class DeviceDBContext extends BaseDBContext<DeviceModel> {
     public void delete(DeviceModel mode) throws SQLException {
 
     }
-
-    public static void main(String[] args) {
-        DeviceDBContext deviceDB = new DeviceDBContext();
-        System.out.println(deviceDB.get("B003").getName());
-        DeviceModel device = deviceDB.get("B003");
-        System.out.println("Usable: " + device.getUsable());
-        device.setUsable(device.getUsable() + 5);
-        deviceDB.update(device);
-        device = null;
-        deviceDB = new DeviceDBContext();
-        device = deviceDB.get("B003");
-        System.out.println("Usable :" + device.getUsable());
-    }
 }

@@ -28,7 +28,9 @@ public class ProfileUIController implements Initializable {
     @FXML
     private TextField addressTextField;
     @FXML
-    private Button btn;
+    private Button editButton;
+    @FXML
+    private Button saveButton;
 
     @FXML
     public void switchToHome() throws IOException {
@@ -67,63 +69,27 @@ public class ProfileUIController implements Initializable {
     }
 
     @FXML
-    public void editAndSaveProfile() {
-        if (btn.getText().equals("Save")) {
-            btn.setText("Edit Profile");
-            saveChanges();
-            nameTextField.setEditable(false);
-            nameTextField.setStyle("-fx-background-color: black; -fx-view-order: 0");
-            emailTextField.setEditable(false);
-            emailTextField.setStyle("-fx-background-color: black; -fx-view-order: 0");
-            phoneTextField.setEditable(false);
-            AnchorPane.setRightAnchor(phoneTextField, 27.0);
-            addressTextField.setEditable(false);
-            AnchorPane.setRightAnchor(addressTextField, 27.0);
-        } else {
-            btn.setText("Save");
-            nameTextField.setEditable(true);
-            nameTextField.setStyle("-fx-background-color: black; -fx-view-order: 2");
-            emailTextField.setEditable(true);
-            emailTextField.setStyle("-fx-background-color: black; -fx-view-order: 2");
-            phoneTextField.setEditable(true);
-            AnchorPane.setRightAnchor(phoneTextField, 60.0);
-            addressTextField.setEditable(true);
-            AnchorPane.setRightAnchor(addressTextField, 60.0);
-        }
+    public void editProfile() {
+        nameTextField.setEditable(true);
+        nameTextField.setStyle("-fx-background-color: black; -fx-view-order: 2");
+        emailTextField.setEditable(true);
+        emailTextField.setStyle("-fx-background-color: black; -fx-view-order: 2");
+        phoneTextField.setEditable(true);
+        AnchorPane.setRightAnchor(phoneTextField, 60.0);
+        addressTextField.setEditable(true);
+        AnchorPane.setRightAnchor(addressTextField, 60.0);
+        editButton.setVisible(false);
+        saveButton.setVisible(true);
     }
 
     public void saveChanges() {
-        String textFieldValue = nameTextField.getText().trim();
-        if (textFieldValue.isEmpty()) {
-            showErrorAlert("Bạn chưa điền tên cán bộ kỹ thuật");
-            nameTextField.setText(LoginUIController.admin.getName());
-            emailTextField.setText(LoginUIController.admin.getEmail());
-            phoneTextField.setText(LoginUIController.admin.getPhone());
-            addressTextField.setText(LoginUIController.admin.getAddress());
-            return;
-        }
-
-        String mess = "";
-        textFieldValue = emailTextField.getText().trim();
-        if (textFieldValue.isEmpty()) {
-            mess = mess + "Thiếu email\n";
-        }
-        if(!mess.isEmpty()) {
-            showErrorAlert(mess);
-        }
-
-        LoginUIController.admin.setName(nameTextField.getText());
-        LoginUIController.admin.setEmail(emailTextField.getText());
-        LoginUIController.admin.setPhone(phoneTextField.getText());
-        LoginUIController.admin.setAddress(addressTextField.getText());
-
         DatabaseConnection catConn = new DatabaseConnection();
         Connection connectDB = catConn.getConnection();
 
-        String updateQuery = "UPDATE Profile SET Name = N'" + LoginUIController.admin.getName() + "', " +
-                "Email = '" + LoginUIController.admin.getEmail() + "', " +
-                "Address = N'" + LoginUIController.admin.getAddress() + "', " +
-                "Phone = '" + LoginUIController.admin.getPhone() + "' " +
+        String updateQuery = "UPDATE Profile SET Name = N'" + nameTextField.getText() + "', " +
+                "Email = '" + emailTextField.getText() + "', " +
+                "Address = N'" + addressTextField.getText() + "', " +
+                "Phone = '" + phoneTextField.getText() + "' " +
                 "WHERE Username = '" + LoginUIController.admin.getUsername() + "'";
 
         try {
@@ -131,13 +97,37 @@ public class ProfileUIController implements Initializable {
             statement.executeUpdate(updateQuery);
 
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getCause();
+            String mess = "";
+            if (nameTextField.getText().trim().isEmpty()) {
+                mess = mess + "Please fill in your name\n";
+            }
+            if (emailTextField.getText().trim().isEmpty()) {
+                mess = mess + "Please fill in your address\n";
+            }
+            showErrorAlert(mess);
+            return;
+
         }
+
+        LoginUIController.admin.setName(nameTextField.getText());
+        LoginUIController.admin.setEmail(emailTextField.getText());
+        LoginUIController.admin.setPhone(phoneTextField.getText());
+        LoginUIController.admin.setAddress(addressTextField.getText());
+
+        nameTextField.setEditable(false);
+        nameTextField.setStyle("-fx-background-color: black; -fx-view-order: 0");
+        emailTextField.setEditable(false);
+        emailTextField.setStyle("-fx-background-color: black; -fx-view-order: 0");
+        phoneTextField.setEditable(false);
+        AnchorPane.setRightAnchor(phoneTextField, 27.0);
+        addressTextField.setEditable(false);
+        AnchorPane.setRightAnchor(addressTextField, 27.0);
+        editButton.setVisible(true);
+        saveButton.setVisible(false);
     }
     private void showErrorAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Thiếu thông tin");
+        alert.setTitle("Error");
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();

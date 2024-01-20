@@ -31,15 +31,15 @@ public class LoginUIController {
             App.setRoot("homeUI");
         } else {
             if (!username.isEmpty() && !password.isEmpty()) {
-                showErrorAlert("Tên đăng nhập hoặc mật khẩu không đúng!");
+                showErrorAlert("Username or password is incorrect!");
             }
             else {
                 String mess = "";
                 if (username.isEmpty()) {
-                    mess = mess + "Chưa điền Tên đăng nhập\n";
+                    mess = mess + "Please fill in your username\n";
                 }
                 if (password.isEmpty()) {
-                    mess = mess + "Chưa điền Mật khẩu\n";
+                    mess = mess + "Please fill in your password\n";
                 }
                 showErrorAlert(mess);
             }

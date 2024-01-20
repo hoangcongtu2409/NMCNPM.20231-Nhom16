@@ -5,21 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa1be5db-867d-4818-80e8-090f13f65645" name="Changes" comment="git config --global user.email &quot;you@example.com&quot; git config --global user.name &quot;Your Name&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/CSS/TextField1.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/CSS/TextField.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CSS/TextField.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/DatabaseConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/constant/IDatabaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/constant/IDatabaseConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/ClientsUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/ClientsUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/DevicesUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/DevicesUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/HomeUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/HomeUIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/LoginUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/LoginUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/ManageUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/ManageUIController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/ProfileUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/controller/ProfileUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/clientsUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/clientsUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/devicesUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/devicesUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/homeUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/homeUI.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/manageUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/manageUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/dbcontext/DeviceDBContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/teachingAidManagementSystem/dbcontext/DeviceDBContext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/profileUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/teachingAidManagementSystem/profileUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
