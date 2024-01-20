@@ -30,7 +30,19 @@ public class LoginUIController {
         if (isValidLogin(username, password)) {
             App.setRoot("homeUI");
         } else {
-            showErrorAlert("Tên đăng nhập hoặc mật khẩu không đúng!");
+            if (!username.isEmpty() && !password.isEmpty()) {
+                showErrorAlert("Tên đăng nhập hoặc mật khẩu không đúng!");
+            }
+            else {
+                String mess = "";
+                if (username.isEmpty()) {
+                    mess = mess + "Chưa điền Tên đăng nhập\n";
+                }
+                if (password.isEmpty()) {
+                    mess = mess + "Chưa điền Mật khẩu\n";
+                }
+                showErrorAlert(mess);
+            }
         }
     }
 
